@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Бизнес-форумы МГУ по годам: статистика, рост, ключевые показатели."
+    />
+    <title>Бизнес-форумы МГУ — по годам</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="page-subpage">
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html#hero" aria-label="Перейти на главную страницу">
+        <span class="brand-logo">
+          <img
+            src="assets/img/mgu-hero-user.jpg"
+            alt="Логотип Бизнес-клуба МГУ"
+            width="52"
+            height="52"
+          />
+        </span>
+        <span class="brand-text">
+          <strong>Бизнес-клуб МГУ</strong>
+          <small>MSU Business Club</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Навигация">
+        <a href="index.html" data-subpage-only>Главная</a>
+
+        <a href="#about" data-home-only>О клубе</a>
+        <a href="#team" data-home-only>Команда</a>
+        <a href="#events" data-home-only>События</a>
+        <a href="#products" data-home-only>Продукты</a>
+        <a href="#contacts" data-home-only>Контакты</a>
+
+        <a href="events.html">Архив</a>
+        <a href="forums.html">Форумы</a>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="social-icon-btn"
+          href="https://t.me/bcmsu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Открыть Telegram"
+        >
+          <img src="assets/img/icon-telegram.svg" alt="" width="20" height="20" />
+          <span class="sr-only">Telegram</span>
+        </a>
+        <a
+          class="social-icon-btn"
+          href="https://vk.com/bcmsu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Открыть VK"
+        >
+          <img src="assets/img/icon-vk.svg" alt="" width="20" height="20" />
+          <span class="sr-only">VK</span>
+        </a>
+      </div>
+
+      <div class="header-controls">
+        <div class="lang-switch" aria-label="Перевод страницы">
+          <button type="button" class="lang-btn is-active" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="zh-CN">中文</button>
+        </div>
+
+        <button class="mobile-menu-btn" type="button" id="mobile-menu-btn" aria-expanded="false">
+          Разделы
+        </button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация">
+      <a href="index.html" data-subpage-only>Главная</a>
+
+      <a href="#about" data-home-only>О клубе</a>
+      <a href="#team" data-home-only>Команда</a>
+      <a href="#events" data-home-only>События</a>
+      <a href="#products" data-home-only>Продукты</a>
+      <a href="#contacts" data-home-only>Контакты</a>
+
+      <span class="mobile-nav-divider" aria-hidden="true"></span>
+
+      <a href="events.html">Архив мероприятий</a>
+      <a href="forums.html">Бизнес-форумы</a>
+
+      <span class="mobile-nav-divider" aria-hidden="true"></span>
+
+      <a href="https://t.me/bcmsu" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <a href="https://vk.com/bcmsu" target="_blank" rel="noopener noreferrer">VK</a>
+    </nav>
+
+    <main id="main-content">
+      <div id="forum-page">
+        <section class="page-hero section">
+          <div class="page-hero-box neon-panel">
+            <p class="eyebrow">Бизнес-форум</p>
+            <h1>Бизнес-форумы МГУ по годам</h1>
+            <p class="section-lead">
+              Страница построена вокруг данных в <code>assets/data/forum-stats.json</code>.
+              Замените демонстрационные цифры на реальные — график, счётчики и блоки по годам обновятся автоматически.
+            </p>
+
+            <div class="page-actions">
+              <a class="btn btn-primary" href="https://msubusinessforum.ru/" target="_blank" rel="noopener noreferrer">
+                Сайт форума
+              </a>
+              <button class="btn btn-ghost" type="button" data-open-application>
+                Подать заявку в клуб
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="eyebrow">Ключевые показатели</p>
+            <h2>Масштаб форума — в цифрах</h2>
+          </div>
+
+          <div class="stats-grid" aria-label="Ключевые показатели форума (последний год)">
+            <article class="stat-card neon-panel">
+              <div class="stat-value" id="stat-participants">—</div>
+              <div class="stat-label">участников (последний год)</div>
+              <div class="stat-note">Живая аудитория, нетворк и новые проекты.</div>
+            </article>
+
+            <article class="stat-card neon-panel">
+              <div class="stat-value" id="stat-applications">—</div>
+              <div class="stat-label">заявок (последний год)</div>
+              <div class="stat-note">Конкурсный отбор — растёт спрос и качество.</div>
+            </article>
+
+            <article class="stat-card neon-panel">
+              <div class="stat-value" id="stat-speakers">—</div>
+              <div class="stat-label">спикеров (последний год)</div>
+              <div class="stat-note">Практики, фаундеры и лидеры индустрий.</div>
+            </article>
+
+            <article class="stat-card neon-panel">
+              <div class="stat-value" id="stat-partners">—</div>
+              <div class="stat-label">партнёров (последний год)</div>
+              <div class="stat-note">Компании и фонды, которые поддерживают форум.</div>
+            </article>
+          </div>
+
+          <div class="chart-panel neon-panel">
+            <div class="chart-head">
+              <div>
+                <p class="eyebrow">Динамика</p>
+                <h2>Рост по годам</h2>
+              </div>
+
+              <div class="metric-switch" role="tablist" aria-label="Выбор метрики для графика">
+                <button class="metric-btn is-active" type="button" data-metric="participants" aria-pressed="true">
+                  Участники
+                </button>
+                <button class="metric-btn" type="button" data-metric="applications" aria-pressed="false">
+                  Заявки
+                </button>
+                <button class="metric-btn" type="button" data-metric="speakers" aria-pressed="false">
+                  Спикеры
+                </button>
+                <button class="metric-btn" type="button" data-metric="speaker_capital_bln_rub" aria-pressed="false">
+                  Капитал
+                </button>
+              </div>
+            </div>
+
+            <div class="chart-wrap">
+              <svg
+                id="forum-chart-svg"
+                class="chart-svg"
+                role="img"
+                aria-label="График роста по выбранной метрике"
+              ></svg>
+            </div>
+
+            <p class="chart-caption" id="forum-chart-caption"></p>
+          </div>
+
+          <div class="section-head" style="margin-top: 22px;">
+            <p class="eyebrow">По годам</p>
+            <h2>Карта форума</h2>
+          </div>
+
+          <div class="year-tabs" id="year-tabs" aria-label="Выбор года"></div>
+
+          <section class="year-detail neon-panel" id="year-detail" aria-live="polite"></section>
+
+          <p class="events-archive-meta" id="forum-meta"></p>
+          <p class="events-archive-meta" id="forum-loading">Загрузка данных…</p>
+          <p class="events-archive-meta" id="forum-error" hidden role="alert"></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="current-year"></span> Бизнес-клуб МГУ. Все права защищены.</p>
+    </footer>
+
+    <div id="google_translate_element" class="translate-widget" aria-hidden="true"></div>
+
+    <div class="sheet-overlay" id="sheet-overlay" hidden></div>
+    <section class="application-sheet" id="application-sheet" aria-hidden="true" aria-labelledby="sheet-title">
+      <button type="button" class="sheet-close" id="sheet-close" aria-label="Закрыть форму">
+        &times;
+      </button>
+      <p class="eyebrow">Заявка в клуб</p>
+      <h3 id="sheet-title">Подать заявку в Бизнес-клуб МГУ</h3>
+      <form id="application-form" class="application-form">
+        <label>
+          ФИО
+          <input type="text" name="fullname" placeholder="Иванов Иван Иванович" required />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Почта
+            <input type="email" name="email" placeholder="example@mail.com" required />
+          </label>
+          <label>
+            Телефон
+            <input type="tel" name="phone" placeholder="+7 (900) 000-00-00" required />
+          </label>
+        </div>
+        <label>
+          Информация о проекте участника
+          <textarea
+            name="project_info"
+            rows="4"
+            placeholder="Коротко: идея, стадия, команда, цель участия в клубе"
+            required
+          ></textarea>
+        </label>
+        <label>
+          Дополнительная информация
+          <textarea
+            name="extra_info"
+            rows="3"
+            placeholder="Ссылки, достижения, вопросы к клубу и т.д."
+          ></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-submit">Отправить заявку</button>
+        <p class="status-message" id="application-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <div class="modal-overlay" id="feedback-overlay" hidden></div>
+    <section class="feedback-modal neon-panel" id="feedback-modal" aria-hidden="true" aria-labelledby="feedback-title">
+      <button type="button" class="sheet-close" id="feedback-close" aria-label="Закрыть форму">
+        &times;
+      </button>
+      <p class="eyebrow">Форма обратной связи</p>
+      <h3 id="feedback-title">Напишите нам</h3>
+      <form id="feedback-form" class="feedback-popup-form">
+        <label>
+          Ваше имя
+          <input type="text" name="name" placeholder="Иван Иванов" required />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Почта
+            <input type="email" name="email" placeholder="example@mail.com" required />
+          </label>
+          <label>
+            Телефон
+            <input type="tel" name="phone" placeholder="+7 (900) 000-00-00" required />
+          </label>
+        </div>
+        <label>
+          Сообщение
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Коротко опишите ваш вопрос или идею"
+            required
+          ></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-submit">Отправить сообщение</button>
+        <p class="status-message" id="feedback-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "ru",
+            includedLanguages: "ru,en,zh-CN",
+            autoDisplay: false
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/forums-page.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A3E8E"/>
+      <stop offset="1" stop-color="#0B1534"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="70" y1="70" x2="442" y2="442" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#68B8FF"/>
+      <stop offset="1" stop-color="#35D2FF"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="230" fill="url(#bg)" />
+  <circle cx="256" cy="256" r="228" stroke="url(#ring)" stroke-width="4"/>
+  <path d="M128 312L256 180L384 312" stroke="#BFE5FF" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M160 312V348H352V312" stroke="#85CBFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="256" y="420" text-anchor="middle" fill="#DFF2FF" font-size="46" font-family="Arial, sans-serif" font-weight="700">
+    БК МГУ
+  </text>
+</svg>

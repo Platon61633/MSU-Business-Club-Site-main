@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l \"C:\\\\Users\\\\ДИМА\\\\Desktop\\\\BC_Site\\\\Next v3.0/public/assets/js/\"*.js)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls \"/c/Users/ДИМА/Desktop/BC_Site/Next v3.0/node_modules/.bin/next\"*)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //PID 72424 //F)"
+    ]
+  }
+}

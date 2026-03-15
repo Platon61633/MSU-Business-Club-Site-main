@@ -1,0 +1,20 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardBg" x1="80" y1="40" x2="1120" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18366E"/>
+      <stop offset="1" stop-color="#081630"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#cardBg)"/>
+  <rect x="126" y="156" width="948" height="588" rx="28" stroke="#75BFFF" stroke-opacity="0.65" stroke-width="8" stroke-dasharray="18 20"/>
+  <path d="M310 595L470 448L620 545L794 385L908 496" stroke="#9AD8FF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="470" cy="448" r="18" fill="#BCE8FF"/>
+  <circle cx="620" cy="545" r="18" fill="#BCE8FF"/>
+  <circle cx="794" cy="385" r="18" fill="#BCE8FF"/>
+  <text x="600" y="285" text-anchor="middle" fill="#DDF2FF" font-size="60" font-family="Arial, sans-serif" font-weight="700">
+    IMAGE PLACEHOLDER
+  </text>
+  <text x="600" y="675" text-anchor="middle" fill="#A9CFF0" font-size="34" font-family="Arial, sans-serif">
+    4:3 • JPG/PNG • min 1200x900
+  </text>
+</svg>

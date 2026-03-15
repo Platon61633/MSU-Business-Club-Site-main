@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Бизнес-клуб МГУ — сообщество студентов и экспертов, где идеи превращаются в проекты."
+    />
+    <title>Бизнес-клуб МГУ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="page-home">
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#hero" aria-label="Перейти к началу страницы">
+        <span class="brand-logo">
+          <!-- Логотип клуба: при необходимости замените на SVG/PNG 1:1 (рекомендуется 512x512) -->
+          <img
+            src="assets/img/mgu-hero-user.jpg"
+            alt="Логотип Бизнес-клуба МГУ"
+            width="52"
+            height="52"
+          />
+        </span>
+        <span class="brand-text">
+          <strong>Бизнес-клуб МГУ</strong>
+          <small>MSU Business Club</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Навигация">
+        <!-- Навигация по главной странице (показывается только на index.html) -->
+        <a href="#about" data-home-only>О клубе</a>
+        <a href="#team" data-home-only>Команда</a>
+        <a href="#events" data-home-only>События</a>
+        <a href="#products" data-home-only>Продукты</a>
+        <a href="#contacts" data-home-only>Контакты</a>
+
+        <!-- Ссылки на другие страницы (показываются на всех страницах) -->
+        <a href="events.html">Архив</a>
+        <a href="forums.html">Форумы</a>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="social-icon-btn"
+          href="https://t.me/bcmsu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Открыть Telegram"
+        >
+          <img src="assets/img/icon-telegram.svg" alt="" width="20" height="20" />
+          <span class="sr-only">Telegram</span>
+        </a>
+        <a
+          class="social-icon-btn"
+          href="https://vk.com/bcmsu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Открыть VK"
+        >
+          <img src="assets/img/icon-vk.svg" alt="" width="20" height="20" />
+          <span class="sr-only">VK</span>
+        </a>
+      </div>
+
+      <div class="header-controls">
+        <div class="lang-switch" aria-label="Перевод страницы">
+          <button type="button" class="lang-btn is-active" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="zh-CN">中文</button>
+        </div>
+
+        <button class="mobile-menu-btn" type="button" id="mobile-menu-btn" aria-expanded="false">
+          Разделы
+        </button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация">
+      <!-- Главная (показывается только на подстраницах) -->
+      <a href="index.html" data-subpage-only>Главная</a>
+
+      <!-- Разделы главной страницы (показываются только на index.html) -->
+      <a href="#about" data-home-only>О клубе</a>
+      <a href="#team" data-home-only>Команда</a>
+      <a href="#events" data-home-only>События</a>
+      <a href="#products" data-home-only>Продукты</a>
+      <a href="#contacts" data-home-only>Контакты</a>
+
+      <span class="mobile-nav-divider" aria-hidden="true"></span>
+
+      <!-- Другие страницы -->
+      <a href="events.html">Архив мероприятий</a>
+      <a href="forums.html">Бизнес-форумы</a>
+
+      <span class="mobile-nav-divider" aria-hidden="true"></span>
+
+      <a href="https://t.me/bcmsu" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <a href="https://vk.com/bcmsu" target="_blank" rel="noopener noreferrer">VK</a>
+    </nav>
+
+    <main id="main-content">
+      <section class="hero section" id="hero">
+        <div class="hero-media" aria-hidden="true">
+          <!-- Фон заставки: при необходимости замените на фото МГУ (JPG/WebP, 16:9, минимум 1920x1080) -->
+          <img
+            src="https://static.tildacdn.com/tild6333-6533-4665-b036-636561386534/0912_Kosmicheskij-fa.jpg"
+            alt="Главное здание МГУ"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-frost neon-panel" aria-hidden="true"></div>
+
+        <div class="hero-copy">
+          <h1>Бизнес-клуб МГУ</h1>
+          <p class="hero-description">
+            Сообщество предпринимателей — студентов и выпускников МГУ.<br />То место, где сильные идеи становятся бизнес-проектами.
+          </p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#about">О клубе</a>
+            <button type="button" class="btn btn-ghost" data-open-application>
+              Подать заявку в клуб
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="section-head">
+          <p class="eyebrow">О клубе</p>
+          <h2>Возможности для резидентов</h2>
+        </div>
+        <p class="section-lead">
+          Ты хотел бы обсудить стратегические деловые вопросы с компетентными людьми? Взглянуть на ситуацию со стороны и получить релевантный совет? А как насчёт расширения круга полезных знакомств и возможности развиваться в компании единомышленников?
+        </p>
+        <div class="about-zigzag">
+          <article class="about-row">
+            <div class="about-media neon-panel">
+              <img src="assets/img/network.jpg" alt="Нетворкинг, наставничество и поиск команды" />
+            </div>
+            <div class="about-text neon-panel">
+              <h3>Нетворкинг, наставничество и поиск команды</h3>
+              <p>
+                Обмен опытом с участниками клуба, невероятно заряженная команда БК МГУ. Поддержка от опытных менторов и эдвайзеров.
+                <br />Формулирование стратегии, осмысление полученного опыта и получение рекомендаций по развитию и росту бизнеса.
+                Поиск кофаундеров и участников с нужными навыками.
+              </p>
+            </div>
+          </article>
+
+          <article class="about-row about-row--reverse">
+            <div class="about-media neon-panel">
+              <img src="assets/img/invests.jpg" alt="Инвестиции для стартапов" />
+            </div>
+            <div class="about-text neon-panel">
+              <h3>Инвестиции для стартапов</h3>
+              <p>
+                Наши инвесторы — крупные российские компании, инвестиционные и венчурные фонды, частные инвесторы, а также остальные участники рынка,
+                получившие одобрение от руководства клуба. Участие в питч-сессиях — прекрасный шанс заявить о своём проекте инвесторам и/или получить грант.
+              </p>
+            </div>
+          </article>
+
+          <article class="about-row">
+            <div class="about-media neon-panel">
+              <img src="assets/img/events.jpg" alt="Клубные мероприятия" />
+            </div>
+            <div class="about-text neon-panel">
+              <h3>Клубные мероприятия</h3>
+              <p>
+                Закрытые мероприятия для резидентов клуба, в том числе с приглашенными топ-спикерами. Форматы: закрытая встреча, бизнес-завтрак, выездная рабочая сессия.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="team section" id="team">
+        <div class="section-head">
+          <p class="eyebrow">Команда</p>
+          <h2>Люди, которые собирают сообщество</h2>
+        </div>
+        <p class="section-lead">
+          Здесь — карточки команды. Можно добавлять новые, просто копируя существующие <code>&lt;article class="team-card"&gt;</code> блоки.
+          Автопрокрутка настраивается в <code>assets/js/main.js</code> (переменная <code>CONFIG.teamMarqueeSpeedPxPerSec</code>).
+        </p>
+
+        <div class="team-scroll-wrap neon-panel">
+          <div
+            class="team-marquee"
+            id="team-marquee"
+            tabindex="0"
+            aria-label="Карточки команды Бизнес-клуба МГУ. Наведите курсор или сфокусируйтесь, чтобы остановить автопрокрутку."
+          >
+            <div class="team-track" id="team-track">
+              <!-- Чтобы добавить карточку: скопируйте любой блок <article class="team-card ..."> ниже -->
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">ИИ</div>
+                <div>
+                  <h3 class="team-name">Иван Иванов</h3>
+                  <p class="team-role">Президент клуба</p>
+                </div>
+              </article>
+
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">МП</div>
+                <div>
+                  <h3 class="team-name">Мария Петрова</h3>
+                  <p class="team-role">Руководитель сообщества</p>
+                </div>
+              </article>
+
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">АК</div>
+                <div>
+                  <h3 class="team-name">Алексей Кузнецов</h3>
+                  <p class="team-role">Операционный директор</p>
+                </div>
+              </article>
+
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">ЕД</div>
+                <div>
+                  <h3 class="team-name">Екатерина Дмитриева</h3>
+                  <p class="team-role">Партнёрства и спонсоры</p>
+                </div>
+              </article>
+
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">НС</div>
+                <div>
+                  <h3 class="team-name">Никита Смирнов</h3>
+                  <p class="team-role">События и программа</p>
+                </div>
+              </article>
+
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">ВО</div>
+                <div>
+                  <h3 class="team-name">Валерия Орлова</h3>
+                  <p class="team-role">Коммуникации и PR</p>
+                </div>
+              </article>
+
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">ДК</div>
+                <div>
+                  <h3 class="team-name">Даниил Корнеев</h3>
+                  <p class="team-role">Дизайн и контент</p>
+                </div>
+              </article>
+
+              <article class="team-card mini-panel">
+                <div class="team-avatar" aria-hidden="true">АС</div>
+                <div>
+                  <h3 class="team-name">Анна Соколова</h3>
+                  <p class="team-role">Резиденты и онбординг</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <p class="team-hint">
+            Подсказка: автопрокрутка останавливается при наведении/фокусе (и отключается при настройке <em>Reduce motion</em> в системе).
+          </p>
+        </div>
+
+        <div class="partners-block">
+          <div class="section-head">
+            <p class="eyebrow">Партнёры</p>
+            <h2>Те, кто помогает делать больше</h2>
+          </div>
+
+          <div class="partners-grid">
+            <!-- Чтобы добавить партнёра: скопируйте любой блок .partner-card -->
+            <article class="partner-card mini-panel">
+              <div class="partner-logo" aria-hidden="true"></div>
+              <div>
+                <div class="partner-name">Партнёр №1</div>
+                <div class="partner-note">Генеральный партнёр</div>
+              </div>
+            </article>
+
+            <article class="partner-card mini-panel">
+              <div class="partner-logo" aria-hidden="true"></div>
+              <div>
+                <div class="partner-name">Партнёр №2</div>
+                <div class="partner-note">Партнёр мероприятий</div>
+              </div>
+            </article>
+
+            <article class="partner-card mini-panel">
+              <div class="partner-logo" aria-hidden="true"></div>
+              <div>
+                <div class="partner-name">Партнёр №3</div>
+                <div class="partner-note">Инфопартнёр</div>
+              </div>
+            </article>
+
+            <article class="partner-card mini-panel">
+              <div class="partner-logo" aria-hidden="true"></div>
+              <div>
+                <div class="partner-name">Партнёр №4</div>
+                <div class="partner-note">Партнёр площадки</div>
+              </div>
+            </article>
+
+            <article class="partner-card mini-panel">
+              <div class="partner-logo" aria-hidden="true"></div>
+              <div>
+                <div class="partner-name">Партнёр №5</div>
+                <div class="partner-note">Партнёр сообщества</div>
+              </div>
+            </article>
+
+            <article class="partner-card mini-panel">
+              <div class="partner-logo" aria-hidden="true"></div>
+              <div>
+                <div class="partner-name">Партнёр №6</div>
+                <div class="partner-note">Партнёр медиа</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="events section" id="events">
+        <div class="section-head section-head-inline">
+          <div>
+            <p class="eyebrow">Форум и мероприятия</p>
+            <h2>Анонсы событий</h2>
+          </div>
+          <div class="slider-controls" aria-label="Управление слайдером">
+            <button class="slider-btn" id="events-prev" type="button" aria-label="Прокрутить назад">
+              &#8592;
+            </button>
+            <button class="slider-btn" id="events-next" type="button" aria-label="Прокрутить вперед">
+              &#8594;
+            </button>
+          </div>
+        </div>
+
+        <div class="events-track-wrap">
+          <div class="events-track" id="events-track">
+            <article class="event-card event-card--image-only neon-panel">
+              <img src="assets/img/event-01-tsypkin.jpg" alt="Обложка мероприятия: Open Talk с Александром Цыпкиным" />
+            </article>
+
+            <article class="event-card event-card--image-only neon-panel">
+              <img src="assets/img/event-02-pitch.jpg" alt="Обложка мероприятия: Питч-сессия" />
+            </article>
+
+            <article class="event-card event-card--image-only neon-panel">
+              <img src="assets/img/event-03-alyasov.jpg" alt="Обложка мероприятия: Open Talk с Андреем Алясовым" />
+            </article>
+
+            <article class="event-card event-card--image-only neon-panel">
+              <img src="assets/img/event-04-ryasova.jpg" alt="Обложка мероприятия: Open Talk с Ксенией Рясовой" />
+            </article>
+          </div>
+        </div>
+
+        <div class="page-actions" style="margin-top: 18px;">
+          <a class="btn btn-ghost" href="events.html">Перейти в архив мероприятий</a>
+          <a class="btn btn-ghost" href="forums.html">Бизнес-форумы по годам</a>
+        </div>
+      </section>
+
+      <section class="products section" id="products">
+        <div class="section-head">
+          <p class="eyebrow">Продукты</p>
+          <h2>Направления и сервисы клуба</h2>
+        </div>
+        <div class="products-grid">
+          <article class="product-card neon-panel">
+            <img src="assets/img/Accelerator.png" alt="Акселератор МГУ" />
+            <div class="product-content">
+              <h3>Акселератор МГУ</h3>
+              <p>8-недельный цикл разработки проекта с трекером, менторами и финальным демо-днём. Отличное начало развития в сфере ТехПреда.</p>
+              <a href="https://x-startup.ru/" aria-label="Ссылка на программу акселератора">Подробнее</a>
+            </div>
+          </article>
+
+          <article class="product-card neon-panel">
+            <img src="assets/img/Forum.jpg" alt="Бизнес-форум МГУ" />
+            <div class="product-content">
+              <h3>Бизнес-форум МГУ</h3>
+              <p>Тысячи лучших участников со всех регионов страны, нетворкинг, живое общение с основателями многомиллиардных бизнесов и многое другое.</p>
+              <a href="https://msubusinessforum.ru/" aria-label="Сайт форума">Сайт форума</a>
+            </div>
+          </article>
+
+          <article class="product-card neon-panel">
+            <img src="assets/img/bookclub.jpg" alt="Книжный клуб" />
+            <div class="product-content">
+              <h3>Книжный Клуб БК МГУ</h3>
+              <p>Всегда качественная литература в сфере бизнеса, психологии, социологии и т.д. Истории успеха великих людей и не только. Обсуждение самых интересных тем.</p>
+              <a href="https://t.me/bookbcmsu" aria-label="Чат книжного клуба">Чат клуба</a>
+            </div>
+          </article>
+
+          <article class="product-card neon-panel">
+            <img src="assets/img/bot.jpg" alt="Бот для бизнес-дейтинга" />
+            <div class="product-content">
+              <h3>Бот для бизнес-дейтинга</h3>
+              <p>Для поиска инвесторов, кофаундеров, специалистов. Здесь также проходит нетворкинг во время Бизнес-форума.</p>
+              <a href="#!" aria-label="Стать партнёром (заглушка)">Стать партнёром</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contacts section" id="contacts">
+        <div class="contacts-split">
+          <article class="contacts-photo neon-panel">
+            <img src="assets/img/contacts-logo-blue.jpg" alt="Логотип Бизнес-клуба МГУ" />
+          </article>
+
+          <div class="contacts-side">
+            <div class="social-strip neon-panel">
+              <div class="social-strip-copy">
+                <p class="eyebrow">Соцсети</p>
+                <h2>Оставайтесь на связи</h2>
+              </div>
+              <div class="social-strip-links">
+                <a href="https://t.me/bcmsu" target="_blank" rel="noopener">Telegram</a>
+                <a href="https://vk.com/bcmsu" target="_blank" rel="noopener">VK</a>
+                <a href="https://www.instagram.com/msubusinessclub" target="_blank" rel="noopener">Instagram</a>
+                <a href="#!" aria-label="Ссылка на Youtube (заглушка)">Youtube</a>
+              </div>
+            </div>
+
+            <div class="contact-actions neon-panel">
+              <button type="button" class="btn btn-ghost" data-open-feedback>
+                Форма обратной связи
+              </button>
+              <button type="button" class="btn btn-primary" data-open-application>
+                Подать заявку в БК
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="current-year"></span> Бизнес-клуб МГУ. Все права защищены.</p>
+    </footer>
+
+    <div id="google_translate_element" class="translate-widget" aria-hidden="true"></div>
+
+    <div class="sheet-overlay" id="sheet-overlay" hidden></div>
+    <section class="application-sheet" id="application-sheet" aria-hidden="true" aria-labelledby="sheet-title">
+      <button type="button" class="sheet-close" id="sheet-close" aria-label="Закрыть форму">
+        &times;
+      </button>
+      <p class="eyebrow">Заявка в клуб</p>
+      <h3 id="sheet-title">Подать заявку в Бизнес-клуб МГУ</h3>
+      <form id="application-form" class="application-form">
+        <label>
+          ФИО
+          <input type="text" name="fullname" placeholder="Иванов Иван Иванович" required />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Почта
+            <input type="email" name="email" placeholder="example@mail.com" required />
+          </label>
+          <label>
+            Телефон
+            <input type="tel" name="phone" placeholder="+7 (900) 000-00-00" required />
+          </label>
+        </div>
+        <label>
+          Информация о проекте участника
+          <textarea
+            name="project_info"
+            rows="4"
+            placeholder="Коротко: идея, стадия, команда, цель участия в клубе"
+            required
+          ></textarea>
+        </label>
+        <label>
+          Дополнительная информация
+          <textarea
+            name="extra_info"
+            rows="3"
+            placeholder="Ссылки, достижения, вопросы к клубу и т.д."
+          ></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-submit">Отправить заявку</button>
+        <p class="status-message" id="application-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <div class="modal-overlay" id="feedback-overlay" hidden></div>
+    <section class="feedback-modal neon-panel" id="feedback-modal" aria-hidden="true" aria-labelledby="feedback-title">
+      <button type="button" class="sheet-close" id="feedback-close" aria-label="Закрыть форму">
+        &times;
+      </button>
+      <p class="eyebrow">Форма обратной связи</p>
+      <h3 id="feedback-title">Напишите нам</h3>
+      <form id="feedback-form" class="feedback-popup-form">
+        <label>
+          Ваше имя
+          <input type="text" name="name" placeholder="Иван Иванов" required />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Почта
+            <input type="email" name="email" placeholder="example@mail.com" required />
+          </label>
+          <label>
+            Телефон
+            <input type="tel" name="phone" placeholder="+7 (900) 000-00-00" required />
+          </label>
+        </div>
+        <label>
+          Сообщение
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Коротко опишите ваш вопрос или идею"
+            required
+          ></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-submit">Отправить сообщение</button>
+        <p class="status-message" id="feedback-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "ru",
+            includedLanguages: "ru,en,zh-CN",
+            autoDisplay: false
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="147" y1="40" x2="1712" y2="1022" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B2F63"/>
+      <stop offset="1" stop-color="#060E27"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 280) rotate(90) scale(380 720)">
+      <stop stop-color="#4AB4FF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#4AB4FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <path d="M430 710H1490" stroke="#8BCBFF" stroke-opacity="0.45" stroke-width="6"/>
+  <path d="M600 710V470H720V710" stroke="#9CD6FF" stroke-width="10"/>
+  <path d="M860 710V320H1060V710" stroke="#C2E8FF" stroke-width="10"/>
+  <path d="M1200 710V470H1320V710" stroke="#9CD6FF" stroke-width="10"/>
+  <path d="M730 470L960 250L1190 470" stroke="#C2E8FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M930 320L960 180L990 320" stroke="#D3F1FF" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="960" cy="170" r="16" fill="#BCE6FF"/>
+  <text x="960" y="840" text-anchor="middle" fill="#D7EFFF" font-size="68" font-family="Arial, sans-serif" font-weight="700">
+    Место для фото МГУ
+  </text>
+  <text x="960" y="900" text-anchor="middle" fill="#9FC7EA" font-size="36" font-family="Arial, sans-serif">
+    Рекомендуемый формат: 1920x1080, JPG/WebP
+  </text>
+</svg>

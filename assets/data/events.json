@@ -1,0 +1,140 @@
+{
+  "channel": "bcmsu",
+  "fetched_posts": 80,
+  "events": [
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1542,
+      "source_post_url": "https://t.me/bcmsu/1542",
+      "published_at": "2026-02-10T18:20:00+03:00",
+      "title": "Open Talk: Как строить продукт в 2026",
+      "start_at": "2026-02-20T19:00:00+03:00",
+      "location": "Главное здание МГУ, аудитория 01",
+      "registration_url": "https://example.com/register/opentalk-2026",
+      "raw_text": "Open Talk: Как строить продукт в 2026\n\nДата: 20.02.2026\nВремя: 19:00\nМесто: Главное здание МГУ, аудитория 01\nРегистрация: https://example.com/register/opentalk-2026\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1531,
+      "source_post_url": "https://t.me/bcmsu/1531",
+      "published_at": "2026-01-22T12:10:00+03:00",
+      "title": "Бизнес-завтрак резидентов (закрытое)",
+      "start_at": "2026-01-28T10:30:00+03:00",
+      "location": "Москва, кофейня-партнёр (адрес в личных сообщениях)",
+      "registration_url": "https://example.com/register/breakfast",
+      "raw_text": "Бизнес-завтрак резидентов (закрытое)\n\nДата: 28.01\nВремя: 10:30\nМесто: Москва, кофейня-партнёр (адрес в личных сообщениях)\nРегистрация: https://example.com/register/breakfast\n\n#ивенты"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1510,
+      "source_post_url": "https://t.me/bcmsu/1510",
+      "published_at": "2025-12-09T19:30:00+03:00",
+      "title": "Воркшоп: Финмодель стартапа за 90 минут",
+      "start_at": "2025-12-15T18:00:00+03:00",
+      "location": "МГУ, корпус ЭФ, аудитория 312",
+      "registration_url": "https://example.com/register/finmodel",
+      "raw_text": "Воркшоп: Финмодель стартапа за 90 минут\n\n15 декабря, 18:00\nМесто: МГУ, корпус ЭФ, аудитория 312\nРегистрация: https://example.com/register/finmodel\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1492,
+      "source_post_url": "https://t.me/bcmsu/1492",
+      "published_at": "2025-11-02T14:05:00+03:00",
+      "title": "Питч-сессия проектов резидентов",
+      "start_at": "2025-11-14T17:30:00+03:00",
+      "location": "МГУ, коворкинг БК",
+      "registration_url": "https://example.com/register/pitch-2025",
+      "raw_text": "Питч-сессия проектов резидентов\n\nДата: 14.11.2025\nВремя: 17:30\nМесто: МГУ, коворкинг БК\nРегистрация: https://example.com/register/pitch-2025\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1455,
+      "source_post_url": "https://t.me/bcmsu/1455",
+      "published_at": "2025-09-18T16:40:00+03:00",
+      "title": "Лекция: Маркетинг в B2B — как не сжечь бюджет",
+      "start_at": "2025-09-25T19:00:00+03:00",
+      "location": "МГУ, аудитория уточняется",
+      "registration_url": "https://example.com/register/b2b-marketing",
+      "raw_text": "Лекция: Маркетинг в B2B — как не сжечь бюджет\n\nДата: 25.09\nВремя: 19:00\nМесто: МГУ, аудитория уточняется\nРегистрация: https://example.com/register/b2b-marketing\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1408,
+      "source_post_url": "https://t.me/bcmsu/1408",
+      "published_at": "2025-06-03T11:15:00+03:00",
+      "title": "Дайджест мероприятий недели (регистрация)",
+      "start_at": null,
+      "location": null,
+      "registration_url": "https://example.com/register/weekly-digest",
+      "raw_text": "Регистрация на события:\n• https://example.com/register/weekly-digest\n• https://example.com/register/mentor-hour\n\n#дайджест"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1350,
+      "source_post_url": "https://t.me/bcmsu/1350",
+      "published_at": "2025-03-10T13:00:00+03:00",
+      "title": "Open Talk: Предпринимательство в BigTech",
+      "start_at": "2025-03-20T18:30:00+03:00",
+      "location": "МГУ, аудитория 03",
+      "registration_url": "https://example.com/register/bigtech",
+      "raw_text": "Open Talk: Предпринимательство в BigTech\n\n20.03.2025 18:30\nМесто: МГУ, аудитория 03\nРегистрация: https://example.com/register/bigtech\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1288,
+      "source_post_url": "https://t.me/bcmsu/1288",
+      "published_at": "2024-12-05T20:10:00+03:00",
+      "title": "Мастер-класс: Как найти кофаундера",
+      "start_at": "2024-12-12T19:00:00+03:00",
+      "location": "Онлайн (Zoom)",
+      "registration_url": "https://example.com/register/cofounder",
+      "raw_text": "Мастер-класс: Как найти кофаундера\n\nДата: 12.12\nВремя: 19:00\nМесто: Онлайн (Zoom)\nРегистрация: https://example.com/register/cofounder\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1234,
+      "source_post_url": "https://t.me/bcmsu/1234",
+      "published_at": "2024-10-01T09:30:00+03:00",
+      "title": "Старт набора в Бизнес-клуб МГУ",
+      "start_at": null,
+      "location": "МГУ",
+      "registration_url": "https://example.com/apply",
+      "raw_text": "Старт набора в Бизнес-клуб МГУ\n\nЗаполни форму: https://example.com/apply\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1201,
+      "source_post_url": "https://t.me/bcmsu/1201",
+      "published_at": "2024-08-16T18:00:00+03:00",
+      "title": "Встреча резидентов: Стратегия на семестр",
+      "start_at": "2024-08-28T18:30:00+03:00",
+      "location": "МГУ, аудитория 05",
+      "registration_url": "https://example.com/register/strategy",
+      "raw_text": "Встреча резидентов: Стратегия на семестр\n\nДата: 28.08\nВремя: 18:30\nМесто: МГУ, аудитория 05\nРегистрация: https://example.com/register/strategy\n\n#ивенты"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1180,
+      "source_post_url": "https://t.me/bcmsu/1180",
+      "published_at": "2024-06-20T12:00:00+03:00",
+      "title": "Лекция: Как валидировать идею без бюджета",
+      "start_at": "2024-06-27T19:00:00+03:00",
+      "location": "МГУ, аудитория 12",
+      "registration_url": "https://example.com/register/validate",
+      "raw_text": "Лекция: Как валидировать идею без бюджета\n\n27 июня, 19:00\nМесто: МГУ, аудитория 12\nРегистрация: https://example.com/register/validate\n\n#анонс"
+    },
+    {
+      "channel": "bcmsu",
+      "source_post_id": 1102,
+      "source_post_url": "https://t.me/bcmsu/1102",
+      "published_at": "2024-02-14T10:40:00+03:00",
+      "title": "Открытая встреча: Что даёт Бизнес-клуб МГУ",
+      "start_at": "2024-02-22T18:00:00+03:00",
+      "location": "МГУ, аудитория 07",
+      "registration_url": "https://example.com/register/intro",
+      "raw_text": "Открытая встреча: Что даёт Бизнес-клуб МГУ\n\nДата: 22.02\nВремя: 18:00\nМесто: МГУ, аудитория 07\nРегистрация: https://example.com/register/intro\n\n#анонс"
+    }
+  ],
+  "generated_at": "2026-02-15T12:00:00+03:00",
+  "note": "demo dataset — replace with real parser output"
+}

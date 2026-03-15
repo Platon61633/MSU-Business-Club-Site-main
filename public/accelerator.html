@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Акселератор МГУ — 8-недельная программа для развития стартапов: трекинг, менторы и демо-день."
+    />
+    <title>Акселератор - Бизнес-клуб МГУ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body class="page-subpage" id="accelerator-page">
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Перейти на главную страницу">
+        <span class="brand-logo">
+          <img
+            src="assets/img/mgu-hero-user.jpg"
+            alt="Логотип Бизнес-клуба МГУ"
+            width="52"
+            height="52"
+          />
+        </span>
+        <span class="brand-text">
+          <strong>Бизнес-клуб МГУ</strong>
+          <small>MSU Business Club</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Навигация">
+        <a href="index.html">Главная</a>
+        <a href="team.html">Команда</a>
+        <a href="events.html">События</a>
+        <a href="forums.html">Форумы</a>
+        <a href="accelerator.html">Акселератор</a>
+        <a href="closed-club.html">Закрытый клуб</a>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="social-icon-btn"
+          href="https://t.me/bcmsu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Открыть Telegram"
+        >
+          <img src="assets/img/icon-telegram.svg" alt="" width="20" height="20" />
+          <span class="sr-only">Telegram</span>
+        </a>
+        <a
+          class="social-icon-btn"
+          href="https://vk.com/bcmsu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Открыть VK"
+        >
+          <img src="assets/img/icon-vk.svg" alt="" width="20" height="20" />
+          <span class="sr-only">VK</span>
+        </a>
+      </div>
+
+      <div class="header-controls">
+        <div class="lang-switch" aria-label="Перевод страницы">
+          <button type="button" class="lang-btn is-active" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="zh-CN">中文</button>
+        </div>
+
+        <button class="mobile-menu-btn" type="button" id="mobile-menu-btn" aria-expanded="false">
+          Разделы
+        </button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация">
+      <a href="index.html">Главная</a>
+      <a href="team.html">Команда</a>
+      <a href="events.html">События</a>
+      <a href="forums.html">Форумы</a>
+      <a href="accelerator.html">Акселератор</a>
+      <a href="closed-club.html">Закрытый клуб</a>
+
+      <span class="mobile-nav-divider" aria-hidden="true"></span>
+
+      <a href="https://t.me/bcmsu" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <a href="https://vk.com/bcmsu" target="_blank" rel="noopener noreferrer">VK</a>
+    </nav>
+
+    <main id="main-content">
+      <div class="subpage-layout">
+        <aside class="subpage-sidenav" aria-label="Навигация по странице">
+          <div class="subpage-sidenav-inner neon-panel" data-animate="fade-right">
+            <p class="eyebrow">Разделы</p>
+            <div class="sidenav-links">
+              <a class="sidenav-link" href="#accelerator-hero"><span>Обзор</span><span class="sidenav-dot" aria-hidden="true"></span></a>
+              <a class="sidenav-link" href="#accelerator-track"><span>Трек</span><span class="sidenav-dot" aria-hidden="true"></span></a>
+              <a class="sidenav-link" href="#accelerator-benefits"><span>Что получаете</span><span class="sidenav-dot" aria-hidden="true"></span></a>
+              <a class="sidenav-link" href="#accelerator-mentors"><span>Эксперты</span><span class="sidenav-dot" aria-hidden="true"></span></a>
+              <a class="sidenav-link" href="#accelerator-how"><span>Как попасть</span><span class="sidenav-dot" aria-hidden="true"></span></a>
+              <a class="sidenav-link" href="#accelerator-cta"><span>Заявка</span><span class="sidenav-dot" aria-hidden="true"></span></a>
+            </div>
+            <div class="sidenav-actions">
+              <button type="button" class="btn btn-primary magnet" data-open-application data-magnet>Подать заявку</button>
+              <a class="btn btn-ghost magnet" data-magnet href="https://t.me/bcmsu" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+          </div>
+        </aside>
+        <div class="subpage-content">
+      <section class="section" id="accelerator-hero">
+        <div class="page-split-hero">
+          <div class="page-split-hero-box neon-panel" data-animate="fade-up" data-stagger="90">
+            <p class="eyebrow" data-animate="fade-down">Акселератор</p>
+            <span class="hero-badge" data-animate="fade-up">Набор открыт</span>
+
+            <h1 data-animate="fade-up">Акселератор МГУ</h1>
+            <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+              8 недель системной работы над продуктом: от формулировки гипотез и исследований до MVP, питча и демо-дня. Всё собрано так, чтобы команде было легко держать темп и видеть следующий шаг.
+            </p>
+
+            <ul class="about-bullets" data-stagger="85">
+              <li data-animate="fade-down">Трекинг 1:1 и групповые синки — чтобы держать темп и фокус.</li>
+              <li data-animate="fade-down">Менторы из индустрии: продукт, продажи, рост, юнит-экономика.</li>
+              <li data-animate="fade-down">Демо-день: презентация прогресса, фидбек и интро.</li>
+            </ul>
+
+            <div class="page-actions" data-animate="scale-in" style="--sa-delay: 220ms">
+              <button type="button" class="btn btn-primary magnet" data-open-application data-magnet>
+                Подать заявку
+              </button>
+              <a
+                class="btn btn-ghost magnet" data-magnet
+                href="https://t.me/bcmsu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Написать в Telegram
+              </a>
+            </div>
+          </div>
+
+          <div class="page-split-hero-media neon-panel lift-on-hover" data-animate="blur-in">
+            <img data-parallax-img
+              src="assets/img/event-02-pitch.jpg"
+              alt="Питч-сессия и демо-день"
+              loading="eager"
+            />
+
+            <div class="media-overlay-kpis" data-stagger="80" aria-label="Ключевые параметры программы">
+              <div class="overlay-kpi" data-animate="fade-up">
+                <strong>8 недель</strong>
+                <span>структурный трек</span>
+              </div>
+              <div class="overlay-kpi" data-animate="fade-up">
+                <strong>1:1</strong>
+                <span>трекинг с экспертом</span>
+              </div>
+              <div class="overlay-kpi" data-animate="fade-up">
+                <strong>Demo Day</strong>
+                <span>финальный питч</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="accelerator-track">
+        <div class="section-head" data-animate="fade-up">
+          <p class="eyebrow">Трек</p>
+          <h2>Как устроена программа</h2>
+        </div>
+        <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+          Нажмите на неделю, чтобы увидеть, какой результат команда должна принести к чекпоинту.
+        </p>
+
+        <div class="timeline" data-animate="fade-up" style="--sa-delay: 220ms">
+          <div class="timeline-row" role="tablist" aria-label="Недели программы" data-stagger="70">
+            <button data-magnet
+              class="timeline-step magnet is-active"
+              type="button"
+              aria-pressed="true"
+              data-step="0"
+              data-animate="scale-in"
+            >
+              <small>Неделя 1</small>
+              <strong>Диагностика</strong>
+            </button>
+            <button data-magnet class="timeline-step magnet" type="button" aria-pressed="false" data-step="1" data-animate="scale-in">
+              <small>Неделя 2</small>
+              <strong>Проблема</strong>
+            </button>
+            <button data-magnet class="timeline-step magnet" type="button" aria-pressed="false" data-step="2" data-animate="scale-in">
+              <small>Неделя 3</small>
+              <strong>Решение</strong>
+            </button>
+            <button data-magnet class="timeline-step magnet" type="button" aria-pressed="false" data-step="3" data-animate="scale-in">
+              <small>Неделя 4</small>
+              <strong>MVP</strong>
+            </button>
+            <button data-magnet class="timeline-step magnet" type="button" aria-pressed="false" data-step="4" data-animate="scale-in">
+              <small>Неделя 5</small>
+              <strong>Продажи</strong>
+            </button>
+            <button data-magnet class="timeline-step magnet" type="button" aria-pressed="false" data-step="5" data-animate="scale-in">
+              <small>Неделя 6</small>
+              <strong>Метрики</strong>
+            </button>
+            <button data-magnet class="timeline-step magnet" type="button" aria-pressed="false" data-step="6" data-animate="scale-in">
+              <small>Неделя 7</small>
+              <strong>Питч</strong>
+            </button>
+            <button data-magnet class="timeline-step magnet" type="button" aria-pressed="false" data-step="7" data-animate="scale-in">
+              <small>Неделя 8</small>
+              <strong>Demo Day</strong>
+            </button>
+          </div>
+
+          <article class="timeline-detail neon-panel" id="timeline-detail" data-animate="blur-in">
+            <p class="eyebrow">Неделя 1</p>
+            <h3>Диагностика и фокус</h3>
+            <ul>
+              <li>фиксируем текущую стадию и цели на трек</li>
+              <li>собираем гипотезы и формируем план проверок</li>
+              <li>выбираем метрики успеха на ближайшие 2 недели</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="accelerator-benefits">
+        <div class="section-head" data-animate="fade-up">
+          <p class="eyebrow">Результат</p>
+          <h2>Что получаете на выходе</h2>
+        </div>
+
+        <div class="feature-grid" data-stagger="90">
+          <article class="feature-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="feature-icon" aria-hidden="true"></div>
+            <h3>Структура и темп</h3>
+            <p>Понятные чекпоинты, дедлайны и контроль качества - без хаоса и прокрастинации.</p>
+          </article>
+
+          <article class="feature-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="feature-icon" aria-hidden="true"></div>
+            <h3>Гипотезы → факты</h3>
+            <p>Проверяете спрос и ценность решения, а не «вдохновляетесь» идеей.</p>
+          </article>
+
+          <article class="feature-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="feature-icon" aria-hidden="true"></div>
+            <h3>MVP и первые пользователи</h3>
+            <p>Собираете минимально рабочий продукт и тестируете его на реальных людях.</p>
+          </article>
+
+          <article class="feature-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="feature-icon" aria-hidden="true"></div>
+            <h3>Упаковка проекта</h3>
+            <p>Питч, one-pager, понятная история и конкурентные преимущества.</p>
+          </article>
+
+          <article class="feature-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="feature-icon" aria-hidden="true"></div>
+            <h3>Нетворкинг</h3>
+            <p>Комьюнити и доступ к людям, которые могут ускорить проект: менторы, партнёры, инвесторы.</p>
+          </article>
+
+          <article class="feature-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="feature-icon" aria-hidden="true"></div>
+            <h3>Фидбек «как в жизни»</h3>
+            <p>Разборы от практиков: что работает, что нет и что делать дальше.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="accelerator-mentors">
+        <div class="section-head" data-animate="fade-up">
+          <p class="eyebrow">Эксперты</p>
+          <h2>Менторы и трекеры</h2>
+        </div>
+        <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+          Сетка готова под реальных экспертов: здесь легко разместить менторов, области экспертизы и теги по компетенциям.
+        </p>
+
+        <div class="mentor-grid" data-stagger="90">
+          <article class="mentor-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="mentor-head">
+              <div class="mentor-avatar" aria-hidden="true"></div>
+              <div>
+                <div class="mentor-name">Продуктовый трекер</div>
+                <div class="mentor-role">Product · Growth</div>
+              </div>
+            </div>
+            <div class="tag-row">
+              <span class="tag-pill">JTBD</span>
+              <span class="tag-pill">MVP</span>
+              <span class="tag-pill">Retention</span>
+            </div>
+          </article>
+
+          <article class="mentor-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="mentor-head">
+              <div class="mentor-avatar" aria-hidden="true"></div>
+              <div>
+                <div class="mentor-name">Эксперт по B2B-продажам</div>
+                <div class="mentor-role">Sales · B2B</div>
+              </div>
+            </div>
+            <div class="tag-row">
+              <span class="tag-pill">ICP</span>
+              <span class="tag-pill">Outbound</span>
+              <span class="tag-pill">Negotiation</span>
+            </div>
+          </article>
+
+          <article class="mentor-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="mentor-head">
+              <div class="mentor-avatar" aria-hidden="true"></div>
+              <div>
+                <div class="mentor-name">Финансовый ментор</div>
+                <div class="mentor-role">Finance · Unit-econ</div>
+              </div>
+            </div>
+            <div class="tag-row">
+              <span class="tag-pill">LTV</span>
+              <span class="tag-pill">CAC</span>
+              <span class="tag-pill">Cohorts</span>
+            </div>
+          </article>
+
+          <article class="mentor-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="mentor-head">
+              <div class="mentor-avatar" aria-hidden="true"></div>
+              <div>
+                <div class="mentor-name">Юридический эксперт</div>
+                <div class="mentor-role">Legal · IP</div>
+              </div>
+            </div>
+            <div class="tag-row">
+              <span class="tag-pill">IP</span>
+              <span class="tag-pill">Contracts</span>
+              <span class="tag-pill">GDPR</span>
+            </div>
+          </article>
+
+          <article class="mentor-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="mentor-head">
+              <div class="mentor-avatar" aria-hidden="true"></div>
+              <div>
+                <div class="mentor-name">Маркетинговый ментор</div>
+                <div class="mentor-role">Marketing · Brand</div>
+              </div>
+            </div>
+            <div class="tag-row">
+              <span class="tag-pill">Positioning</span>
+              <span class="tag-pill">Go-to-market</span>
+              <span class="tag-pill">Content</span>
+            </div>
+          </article>
+
+          <article class="mentor-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="mentor-head">
+              <div class="mentor-avatar" aria-hidden="true"></div>
+              <div>
+                <div class="mentor-name">Эксперт по питчу</div>
+                <div class="mentor-role">Pitch · Fundraising</div>
+              </div>
+            </div>
+            <div class="tag-row">
+              <span class="tag-pill">Story</span>
+              <span class="tag-pill">Deck</span>
+              <span class="tag-pill">Demo day</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="accelerator-how">
+        <div class="section-head" data-animate="fade-up">
+          <p class="eyebrow">Участие</p>
+          <h2>Как попасть в акселератор</h2>
+        </div>
+
+        <div class="steps-grid" data-stagger="90">
+          <article class="step-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="step-num" aria-hidden="true">01</div>
+            <h3>Заполните заявку</h3>
+            <p>Коротко расскажите о проекте, стадии и целях на 8 недель.</p>
+          </article>
+
+          <article class="step-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="step-num" aria-hidden="true">02</div>
+            <h3>Созвон / интервью</h3>
+            <p>Проверяем мотивацию и соответствие формату. Подбираем трекера.</p>
+          </article>
+
+          <article class="step-card neon-panel lift-on-hover" data-animate="fade-up">
+            <div class="step-num" aria-hidden="true">03</div>
+            <h3>Старт потока</h3>
+            <p>Получаете доступ к материалам, календарю и группе. Начинаем разгон.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="accelerator-cta">
+        <div class="cta-panel neon-panel lift-on-hover" data-animate="blur-in">
+          <div data-animate="fade-up" data-stagger="90">
+            <p class="eyebrow" data-animate="fade-down">Готовы к старту?</p>
+            <h2 data-animate="fade-up">Подавайте заявку и заходите в поток</h2>
+            <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+              Дальше всё просто: выбираем фокус, начинаем проверки и каждый спринт двигаемся к результату.
+            </p>
+          </div>
+
+          <div class="cta-actions" data-animate="scale-in" style="--sa-delay: 220ms">
+            <button type="button" class="btn btn-primary" data-open-application>Подать заявку</button>
+            <button type="button" class="btn btn-ghost" data-open-feedback>Задать вопрос</button>
+          </div>
+        </div>
+      </section>
+            </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="current-year"></span> Бизнес-клуб МГУ. Все права защищены.</p>
+    </footer>
+
+    <div aria-hidden="true" class="translate-widget" id="google_translate_element"></div>
+
+    <div class="sheet-overlay" hidden id="sheet-overlay"></div>
+    <section
+      aria-hidden="true"
+      aria-labelledby="sheet-title"
+      class="application-sheet"
+      id="application-sheet"
+    >
+      <button aria-label="Закрыть форму" class="sheet-close" id="sheet-close" type="button">
+        ×
+      </button>
+      <p class="eyebrow">Заявка в клуб</p>
+      <h3 id="sheet-title">Подать заявку в Бизнес-клуб МГУ</h3>
+      <form class="application-form" id="application-form">
+        <label>
+          ФИО
+          <input name="fullname" placeholder="Иванов Иван Иванович" required type="text" />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Почта
+            <input name="email" placeholder="example@mail.com" required type="email" />
+          </label>
+          <label>
+            Телефон
+            <input name="phone" placeholder="+7 (900) 000-00-00" required type="tel" />
+          </label>
+        </div>
+        <label>
+          Информация о проекте участника
+          <textarea
+            name="project_info"
+            placeholder="Коротко: идея, стадия, команда, цель участия в клубе"
+            required
+            rows="4"
+          ></textarea>
+        </label>
+        <label>
+          Дополнительная информация
+          <textarea
+            name="extra_info"
+            placeholder="Ссылки, достижения, вопросы к клубу и т.д."
+            rows="3"
+          ></textarea>
+        </label>
+        <button class="btn btn-primary btn-submit" type="submit">Отправить заявку</button>
+        <p aria-live="polite" class="status-message" id="application-status" role="status"></p>
+      </form>
+    </section>
+
+    <div class="modal-overlay" hidden id="feedback-overlay"></div>
+    <section
+      aria-hidden="true"
+      aria-labelledby="feedback-title"
+      class="feedback-modal neon-panel"
+      id="feedback-modal"
+    >
+      <button aria-label="Закрыть форму" class="sheet-close" id="feedback-close" type="button">
+        ×
+      </button>
+      <p class="eyebrow">Форма обратной связи</p>
+      <h3 id="feedback-title">Напишите нам</h3>
+      <form class="feedback-popup-form" id="feedback-form">
+        <label>
+          Ваше имя
+          <input name="name" placeholder="Иван Иванов" required type="text" />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Почта
+            <input name="email" placeholder="example@mail.com" required type="email" />
+          </label>
+          <label>
+            Телефон
+            <input name="phone" placeholder="+7 (900) 000-00-00" required type="tel" />
+          </label>
+        </div>
+        <label>
+          Сообщение
+          <textarea
+            name="message"
+            placeholder="Коротко опишите ваш вопрос или идею"
+            required
+            rows="4"
+          ></textarea>
+        </label>
+        <button class="btn btn-primary btn-submit" type="submit">Отправить сообщение</button>
+        <p aria-live="polite" class="status-message" id="feedback-status" role="status"></p>
+      </form>
+    </section>
+
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "ru",
+            includedLanguages: "ru,en,zh-CN",
+            autoDisplay: false
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/accelerator-page.js"></script>
+  </body>
+</html>
