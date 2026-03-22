@@ -1,555 +1,489 @@
 <!DOCTYPE html>
+
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Команда Бизнес-клуба МГУ: направления, руководители и процесс создания масштабных событий."
-    />
-    <title>Команда — Бизнес-клуб МГУ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-  <body class="page-subpage">
-    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
-    <div class="ambient-bg" aria-hidden="true"></div>
-
-    <header class="site-header" id="top">
-      <a class="brand" href="index.html" aria-label="Перейти на главную страницу">
-        <span class="brand-logo">
-          <img
-            src="assets/img/mgu-hero-user.jpg"
-            alt="Логотип Бизнес-клуба МГУ"
-            width="52"
-            height="52"
-          />
-        </span>
-        <span class="brand-text">
-          <strong>Бизнес-клуб МГУ</strong>
-          <small>MSU Business Club</small>
-        </span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Навигация">
-        <a href="index.html">Главная</a>
-        <a href="team.html">Команда</a>
-        <a href="events.html">События</a>
-        <a href="forums.html">Форумы</a>
-        <a href="accelerator.html">Акселератор</a>
-        <a href="closed-club.html">Закрытый клуб</a>
-      </nav>
-
-      <div class="header-actions">
-        <a
-          class="social-icon-btn"
-          href="https://t.me/bcmsu"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Открыть Telegram"
-        >
-          <img src="assets/img/icon-telegram.svg" alt="" width="20" height="20" />
-          <span class="sr-only">Telegram</span>
-        </a>
-        <a
-          class="social-icon-btn"
-          href="https://vk.com/bcmsu"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Открыть VK"
-        >
-          <img src="assets/img/icon-vk.svg" alt="" width="20" height="20" />
-          <span class="sr-only">VK</span>
-        </a>
-      </div>
-
-      <div class="header-controls">
-        <div class="lang-switch" aria-label="Перевод страницы">
-          <button type="button" class="lang-btn is-active" data-lang="ru">RU</button>
-          <button type="button" class="lang-btn" data-lang="en">EN</button>
-          <button type="button" class="lang-btn" data-lang="zh-CN">中文</button>
-        </div>
-
-        <button class="mobile-menu-btn" type="button" id="mobile-menu-btn" aria-expanded="false">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+<meta content="Команда Бизнес-клуба МГУ: направления, руководители и процесс создания масштабных событий." name="description"/>
+<title>Команда — Бизнес-клуб МГУ</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body class="page-subpage">
+<a class="skip-link" href="#main-content">Перейти к содержанию</a>
+<div aria-hidden="true" class="ambient-bg"></div>
+<header class="site-header" id="top">
+<a aria-label="Перейти на главную страницу" class="brand" href="index.html">
+<span class="brand-logo">
+<img alt="Логотип Бизнес-клуба МГУ" height="52" src="assets/img/mgu-hero-user.jpg" width="52"/>
+</span>
+<span class="brand-text">
+<strong>Бизнес-клуб МГУ</strong>
+<small>MSU Business Club</small>
+</span>
+</a>
+<nav aria-label="Навигация" class="desktop-nav">
+<a href="index.html">Главная</a>
+<a href="team.html">Команда</a>
+<a href="events.html">События</a>
+<a href="forums.html">Форум</a>
+<a href="accelerator.html">Акселератор</a>
+<a href="closed-club.html">Закрытый клуб</a>
+</nav>
+<div class="header-actions">
+<a aria-label="Открыть Telegram" class="social-icon-btn" href="https://t.me/bcmsu" rel="noopener noreferrer" target="_blank">
+<img alt="" height="20" src="assets/img/icon-telegram.svg" width="20"/>
+<span class="sr-only">Telegram</span>
+</a>
+<a aria-label="Открыть VK" class="social-icon-btn" href="https://vk.com/bcmsu" rel="noopener noreferrer" target="_blank">
+<img alt="" height="20" src="assets/img/icon-vk.svg" width="20"/>
+<span class="sr-only">VK</span>
+</a>
+</div>
+<div class="header-controls">
+<div aria-label="Перевод страницы" class="lang-switch">
+<button class="lang-btn is-active" data-lang="ru" type="button">RU</button>
+<button class="lang-btn" data-lang="en" type="button">EN</button>
+<button class="lang-btn" data-lang="zh-CN" type="button">中文</button>
+</div>
+<button aria-expanded="false" class="mobile-menu-btn" id="mobile-menu-btn" type="button">
           Разделы
         </button>
-      </div>
-    </header>
-
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация">
-      <a href="index.html">Главная</a>
-      <a href="team.html">Команда</a>
-      <a href="events.html">События</a>
-      <a href="forums.html">Форумы</a>
-      <a href="accelerator.html">Акселератор</a>
-      <a href="closed-club.html">Закрытый клуб</a>
-
-      <span class="mobile-nav-divider" aria-hidden="true"></span>
-
-      <a href="https://t.me/bcmsu" target="_blank" rel="noopener noreferrer">Telegram</a>
-      <a href="https://vk.com/bcmsu" target="_blank" rel="noopener noreferrer">VK</a>
-    </nav>
-
-    <main id="main-content">
-      <section class="section" id="team-hero">
-        <div class="team-page-hero">
-          <div class="team-page-hero-box neon-panel" data-animate="fade-up" data-stagger="90">
-            <p class="eyebrow" data-animate="fade-down">Команда</p>
-            <h1 data-animate="fade-up">Команда Бизнес-клуба МГУ</h1>
-            <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
-              Мы строим сообщество и делаем события «под ключ»: от идеи и сценария до продакшна, партнёров и пост-коммуникации. Страница уже собрана как рабочий шаблон под финальное наполнение команды.
-            </p>
-
-            <ul class="about-bullets" data-stagger="85">
-              <li data-animate="fade-down">9 направлений: Event, Speakers, Marketing, Branding, Production, HR, IT, Administration и др.</li>
-              <li data-animate="fade-down">Премиальные стандарты визуала, таймингов и пользовательского опыта.</li>
-              <li data-animate="fade-down">Рост внутри команды: ответственность → проекты → лидерство.</li>
-            </ul>
-
-            <div class="page-actions" data-animate="scale-in" style="--sa-delay: 220ms">
-              <button type="button" class="btn btn-primary" data-open-application>Подать заявку</button>
-              <a class="btn btn-ghost" href="https://t.me/bcmsu" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
-            </div>
-          </div>
-
-          <div class="team-hero-media neon-panel lift-on-hover" data-animate="blur-in">
-            <img src="assets/img/event-02-pitch.jpg" alt="Команда на подготовке мероприятия" loading="eager" />
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="presidium">
-        <div class="section-head" data-animate="fade-up">
-          <p class="eyebrow">Совет</p>
-          <h2>Совет президентов клуба</h2>
-        </div>
-        <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
-          Стратегия, качество, партнёрства и развитие — зона ответственности президиума.
-        </p>
-
-        <div class="people-grid" data-stagger="110">
-          <article class="person-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="person-photo" aria-hidden="true"></div>
-            <div>
-              <div class="person-name">Президент клуба</div>
-              <div class="person-role">Стратегия и развитие</div>
-              <div class="person-meta">Стратегия · Партнёрства · Качество</div>
-            </div>
-          </article>
-
-          <article class="person-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="person-photo" aria-hidden="true"></div>
-            <div>
-              <div class="person-name">Вице-президент</div>
-              <div class="person-role">Операционное управление</div>
-              <div class="person-meta">Операционка · Команда · Процессы</div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="departments">
-        <div class="section-head" data-animate="fade-up">
-          <p class="eyebrow">Направления</p>
-          <h2>Руководство клуба</h2>
-        </div>
-        <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
-          Роли и направления уже разложены по понятной структуре: дальше страницу можно усиливать карточками участников, достижениями и KPI направлений.
-        </p>
-
-        <div class="dept-grid" data-stagger="90">
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">Event</div>
-              <div class="dept-tag">Мероприятия</div>
-            </div>
-            <p class="dept-lead">Сценарии, площадки, тайминги и безупречная логистика.</p>
-            <ul>
-              <li>бронирование, техническое ТЗ, тайминг</li>
-              <li>работа с гостями и сервис</li>
-              <li>контроль качества в день Х</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель Event</div>
-                <div class="dept-leader-role">Head of Event</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">Speakers</div>
-              <div class="dept-tag">Спикеры</div>
-            </div>
-            <p class="dept-lead">Поиск и кураторство спикеров, чтобы каждый слот был сильным.</p>
-            <ul>
-              <li>подбор релевантных гостей</li>
-              <li>брифы, подготовка и согласования</li>
-              <li>сценарные связки и модерация</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель Speakers</div>
-                <div class="dept-leader-role">Head of Speakers</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">Branding</div>
-              <div class="dept-tag">Визуал</div>
-            </div>
-            <p class="dept-lead">Айдентика, презентации, дизайн-система и визуальная дисциплина.</p>
-            <ul>
-              <li>постеры, лендинги, презентации</li>
-              <li>компоненты, сетки, типографика</li>
-              <li>контроль единого стиля</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель Branding</div>
-                <div class="dept-leader-role">Head of Branding</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">Marketing</div>
-              <div class="dept-tag">Маркетинг</div>
-            </div>
-            <p class="dept-lead">Охваты, билеты, каналы и контент, который приводит людей.</p>
-            <ul>
-              <li>анонсы, рассылки, контент-план</li>
-              <li>креативы и тест гипотез</li>
-              <li>аналитика и ретроспективы</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель Marketing</div>
-                <div class="dept-leader-role">Head of Marketing</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">Production</div>
-              <div class="dept-tag">Продакшн</div>
-            </div>
-            <p class="dept-lead">Свет, звук, сцена</p>
-            <ul>
-              <li>технический продакшн</li>
-              <li>съёмка, монтаж, нарезки</li>
-              <li>подготовка площадки</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель Production</div>
-                <div class="dept-leader-role">Head of Production</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">HR</div>
-              <div class="dept-tag">Команда</div>
-            </div>
-            <p class="dept-lead">Найм, онбординг и среда, где приятно работать.</p>
-            <ul>
-              <li>собеседования и онбординг</li>
-              <li>мотивация и культура</li>
-              <li>оценка и рост</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель HR</div>
-                <div class="dept-leader-role">Head of HR</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">IT</div>
-              <div class="dept-tag">Тех</div>
-            </div>
-            <p class="dept-lead">Сайт, формы, автоматизация и данные.</p>
-            <ul>
-              <li>лендинги и интерактив</li>
-              <li>интеграции и процессы</li>
-              <li>поддержка в день события</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель IT</div>
-                <div class="dept-leader-role">Head of IT</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="dept-card neon-panel lift-on-hover" data-animate="fade-up">
-            <div class="dept-head">
-              <div class="dept-title">Administration</div>
-              <div class="dept-tag">Операции</div>
-            </div>
-            <p class="dept-lead">Партнёры, документы, координация, чтобы всё работало.</p>
-            <ul>
-              <li>админка и координация</li>
-              <li>партнёрства и коммуникации</li>
-              <li>ресурсы и контроль</li>
-            </ul>
-            <div class="dept-leader">
-              <div class="person-photo" aria-hidden="true"></div>
-              <div>
-                <div class="dept-leader-name">Руководитель Admin</div>
-                <div class="dept-leader-role">Head of Admin</div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="process section" id="how-we-create">
-        <div class="section-head" data-animate="fade-up">
-          <p class="eyebrow">Процесс</p>
-          <h2>Как мы создаём масштабные события</h2>
-        </div>
-        <p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+</div>
+</header>
+<nav aria-label="Мобильная навигация" class="mobile-nav" id="mobile-nav">
+<a href="index.html">Главная</a>
+<a href="team.html">Команда</a>
+<a href="events.html">События</a>
+<a href="forums.html">Форум</a>
+<a href="accelerator.html">Акселератор</a>
+<a href="closed-club.html">Закрытый клуб</a>
+<span aria-hidden="true" class="mobile-nav-divider"></span>
+<a href="https://t.me/bcmsu" rel="noopener noreferrer" target="_blank">Telegram</a>
+<a href="https://vk.com/bcmsu" rel="noopener noreferrer" target="_blank">VK</a>
+</nav>
+<main id="main-content">
+<section class="section" id="team-hero">
+<div class="team-page-hero">
+<div class="team-page-hero-box neon-panel" data-animate="fade-up" data-stagger="90">
+<p class="eyebrow" data-animate="fade-down">Команда</p>
+<h1 data-animate="fade-up">Команда Бизнес-клуба МГУ</h1>
+<p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+        Команду клуба развивают студенты МГУ, которые берут на себя реальные задачи: от медиа и HR до событий, PR, IT и развития закрытого клуба. Здесь идеи быстро переходят в работу, а работа — в профессиональный рост.
+      </p>
+<ul class="about-bullets" data-stagger="85">
+<li data-animate="fade-down">Руководители направлений отвечают не только за идеи, но и за реальный результат.</li>
+<li data-animate="fade-down">Внутри команды можно расти через ответственность, проекты и лидерство.</li>
+<li data-animate="fade-down">Связаться с командой можно через Telegram клуба или форму обратной связи на сайте.</li>
+</ul>
+<div class="page-actions" data-animate="scale-in" style="--sa-delay: 220ms">
+<button class="btn btn-primary" data-open-application="" type="button">Подать заявку</button>
+<a class="btn btn-ghost" href="https://t.me/bcmsu" rel="noopener noreferrer" target="_blank">Написать в Telegram</a>
+</div>
+</div>
+<div class="team-hero-media neon-panel lift-on-hover" data-animate="blur-in">
+<img alt="Команда на подготовке мероприятия" loading="eager" src="assets/img/event-02-pitch.jpg"/>
+</div>
+</div>
+</section>
+<section class="section" id="team-core">
+<div class="section-head" data-animate="fade-up">
+<p class="eyebrow">Ключевая команда</p>
+<h2>Люди, которые задают темп клубу</h2>
+</div>
+<p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+    Руководители направлений формируют повестку клуба, собирают процессы и ведут команды к результату.
+  </p>
+<div class="team-bio-grid team-bio-grid--lead" data-stagger="100">
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/sergey-nefedov.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Сергей Нефедов</div>
+<div class="team-bio-role">Руководитель клуба</div>
+<div class="team-bio-faculty">5 курс · Механико-математический факультет</div>
+</div>
+</div>
+<p class="team-bio-lead">Определяет стратегический вектор развития Бизнес-клуба МГУ, координирует работу всех отделов и выстраивает внутренние процессы.</p>
+<p class="team-bio-text">Занимается планированием деятельности клуба, контролирует выполнение задач и помогает направлениям двигаться к общим целям.</p><p class="team-bio-text">Направляет работу руководителей отделов, развивает команду и следит за тем, чтобы идеи превращались в устойчивые результаты.</p>
+<blockquote class="team-quote">Бизнес-клуб МГУ — это в первую очередь про опыт. Здесь ты можешь попробовать себя в роли управленца и научиться работе с людьми.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/darya-chashkina.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Дарья Чашкина</div>
+<div class="team-bio-role">Академический директор</div>
+<div class="team-bio-faculty">Курс уточняется · Факультет уточняется</div>
+</div>
+</div>
+<p class="team-bio-lead">Курирует академическое направление клуба и отвечает за то, чтобы образовательные форматы Бизнес-клуба МГУ были содержательными, последовательными и полезными для участников.</p>
+<p class="team-bio-text">Помогает собирать логику академических треков, формулировать темы встреч и держать высокий стандарт содержания во внутренних и открытых форматах клуба.</p><p class="team-bio-text">Фокусируется на том, чтобы клуб оставался не только пространством инициатив, но и сильной образовательной средой для роста участников.</p>
+</article>
+</div>
+</section>
+<section class="section" id="team-directory">
+<div class="section-head" data-animate="fade-up">
+<p class="eyebrow">Направления</p>
+<h2>Руководители и команда направлений</h2>
+</div>
+<p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+    Ниже — карточки людей, которые делают клуб заметным, организованным и живым: от документов и HR до дизайна, PR, видео и IT.
+  </p>
+<div class="team-bio-grid" data-stagger="100">
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/vladislav-patskevich.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Владислав Пацкевич</div>
+<div class="team-bio-role">Руководитель закрытого клуба</div>
+<div class="team-bio-faculty">3 курс · Физический факультет</div>
+</div>
+</div>
+<p class="team-bio-lead">Развивает проектную работу в рамках клуба и создаёт долгосрочные форматы для предпринимателей и выпускников.</p>
+<p class="team-bio-text">Фокусируется на архитектуре сообществ, качестве взаимодействия между участниками и запуске инициатив, которые усиливают ценность клуба для его ядра.</p><p class="team-bio-text">Работает над форматами, где идеи превращаются в живые проекты и устойчивые инструменты для роста сообщества.</p>
+<blockquote class="team-quote">Для меня участие в Бизнес-клубе МГУ — это возможность создавать и развивать живые проекты внутри сильного сообщества.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/vika-ryazanova.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Вика Рязанова</div>
+<div class="team-bio-role">Руководитель медиа</div>
+<div class="team-bio-faculty">2 курс · Факультет журналистики</div>
+</div>
+</div>
+<p class="team-bio-lead">Определяет вектор развития социальных сетей, формирует контент-планы и выстраивает коммуникацию между направлениями медиа-отдела.</p>
+<p class="team-bio-text">Курирует копирайтинг, форматы и рубрики, а также руководит отделом подкастов — новым направлением, которое клуб активно развивает.</p><p class="team-bio-text">Следит за тем, чтобы контент был системным, узнаваемым и поддерживал общий темп коммуникации клуба.</p>
+<blockquote class="team-quote">Бизнес-клуб — это про профессиональный и личный рост. Здесь я научилась брать ответственность и доводить идеи до результата.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/anastasiya-chervonetskaya.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Анастасия Червонецкая</div>
+<div class="team-bio-role">Руководитель ивент-отдела</div>
+<div class="team-bio-faculty">2 курс · Социологический факультет</div>
+</div>
+</div>
+<p class="team-bio-lead">Вместе с командой отвечает за организацию мероприятий: от работы со спикерами и координации процессов до контроля качества проведения событий.</p>
+<p class="team-bio-text">Также состоит в отделе документов: отправляет приказы и отслеживает их статус, согласует документацию и критерии для повышенной государственной стипендии участников клуба.</p><p class="team-bio-text">Следит за тем, чтобы события были собраны «под ключ» и проходили на высоком уровне даже в сжатые сроки.</p>
+<blockquote class="team-quote">Бизнес-клуб МГУ — это место, где студенты обретают профессиональный опыт и учатся делать всё на максимум.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/anna-mihaylenko.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Анна Михайленко</div>
+<div class="team-bio-role">Руководитель HR-отдела</div>
+<div class="team-bio-faculty">2 курс · Социологический факультет</div>
+</div>
+</div>
+<p class="team-bio-lead">Следит за взаимодействием всех членов клуба, чтобы команда работала слаженно и приходила к сильному результату.</p>
+<p class="team-bio-text">Особенно ценит неформальные встречи, где участники могут лучше узнать друг друга и стать действительно сплочённой командой.</p><p class="team-bio-text">Считает, что сильная внутренняя культура — одна из главных причин качественной работы клуба.</p>
+<blockquote class="team-quote">Для меня Бизнес-клуб МГУ — это про стремление. Когда вокруг так много заряженных энергией людей, ты не можешь стоять на месте.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/darya.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Дарья Тюрина</div>
+<div class="team-bio-role">Руководитель отдела документов</div>
+<div class="team-bio-faculty">2 курс · Социологический факультет</div>
+</div>
+</div>
+<p class="team-bio-lead">Руководит отделом документов в Бизнес-клубе МГУ и вместе с командой отвечает за всю документальную подготовку мероприятий клуба.</p>
+<p class="team-bio-text">Оформляет списки внешних гостей на мероприятия, документы на внос материального оборудования, чтобы гости смогли что-то продегустировать, и занимается всем, что связано с документами в Бизнес-клубе.</p><p class="team-bio-text">Команда делает всё заранее и очень внимательно, потому что это очень ответственная работа и от неё зависит, насколько гладко проходят процессы на мероприятиях.</p>
+<blockquote class="team-quote">Мы делаем всё заранее и очень внимательно, так как это очень ответственная работа.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/sofya-gorkovaya.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Софья Горьковая</div>
+<div class="team-bio-role">Руководитель отдела питч-сессий</div>
+<div class="team-bio-faculty">Курс уточняется · Факультет уточняется</div>
+</div>
+</div>
+<p class="team-bio-lead">Организует работу отдела так, чтобы каждая питч-сессия была максимально полезной для участников.</p>
+<p class="team-bio-text">Вместе с командой формирует программу, отбирает проекты и привлекает экспертов и партнёров.</p><p class="team-bio-text">Смотрит на питч-сессии как на пространство, где миссия клуба сочетается с профессиональным ростом и личной вовлечённостью.</p>
+<blockquote class="team-quote">Работа в клубе — это постоянный вызов самой себе и сотрудничество с командой целеустремлённых и амбициозных людей.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/ekaterina-melnikova.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Екатерина Мельникова</div>
+<div class="team-bio-role">Руководитель отдела клипмейкинга</div>
+<div class="team-bio-faculty">2 курс · Факультет журналистики</div>
+</div>
+</div>
+<p class="team-bio-lead">Отвечает за полный цикл производства видео-контента: от контент-плана до съёмок и монтажа.</p>
+<p class="team-bio-text">Задача направления — превращать идеи Бизнес-клуба МГУ в динамичные и цепляющие ролики, которые усиливают бренд клуба в социальных сетях.</p><p class="team-bio-text">Считает клуб пространством для проб, ошибок, роста и реального творческого и управленческого опыта.</p>
+<blockquote class="team-quote">Здесь каждый проект становится настоящей школой перед большой карьерой.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/nataliya-pudonina.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Наталия Пудонина</div>
+<div class="team-bio-role">Руководитель отдела дизайна</div>
+<div class="team-bio-faculty">2 курс · Факультет журналистики</div>
+</div>
+</div>
+<p class="team-bio-lead">Руководит отделом дизайна и вместе с командой отвечает за айдентику, визуалы для постов, сайт и печатную продукцию клуба.</p>
+<p class="team-bio-text">Направление закрывает всё, что связано с визуальным образом Бизнес-клуба МГУ — от digital-материалов до офлайн-носителей.</p><p class="team-bio-text">Внутри клуба Наталия получила среду и опыт, которые не дают стоять на месте и учат пользоваться возможностями вовремя.</p>
+<blockquote class="team-quote">Здесь я чётко поняла: возможности любят смелых. И если они появляются — надо брать.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/zhanna-kolomnikova.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Жанна Коломникова</div>
+<div class="team-bio-role">Руководитель PR-отдела</div>
+<div class="team-bio-faculty">2 курс · Геологический факультет</div>
+</div>
+</div>
+<p class="team-bio-lead">Отвечает за внешние коммуникации клуба: PR-стратегию, инфоповоды, работу с медиа, соцсетями и позиционированием проектов.</p>
+<p class="team-bio-text">Вместе с командой формирует имидж и смыслы, чтобы о клубе было невозможно не узнать.</p><p class="team-bio-text">Видит ценность клуба прежде всего в сильном сообществе — среде живого диалога, амбиций и связей, которые действительно решают.</p>
+<blockquote class="team-quote">Здесь ты не просто состоишь, а постоянно взаимодействуешь с сильными людьми, превращаешь идеи в проекты и растёшь быстрее.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/misha.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Миша</div>
+<div class="team-bio-role">IT-направление</div>
+<div class="team-bio-faculty">2 курс · Факультет вычислительной математики и кибернетики</div>
+</div>
+</div>
+<p class="team-bio-lead">Занимается IT-направлением: помогает автоматизировать процессы, настраивает технические решения и сопровождает команды на этапе реализации идей.</p>
+<p class="team-bio-text">Его задача — делать так, чтобы инструменты работали на результат, а не создавали лишнюю сложность.</p><p class="team-bio-text">Смотрит на клуб как на пространство практики, где можно брать ответственность, выстраивать системы и видеть прямой эффект от своих действий.</p>
+<blockquote class="team-quote">Бизнес-клуб МГУ — это про опыт и свободу решений. Про идеи, которые проходят путь от замысла до работающего результата.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/arseniy-morev.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Арсений Морев</div>
+<div class="team-bio-role">Отдел видео и монтажа</div>
+<div class="team-bio-faculty">2 курс · Географический факультет</div>
+</div>
+</div>
+<p class="team-bio-lead">Развивает направление горизонтального видеоконтента и отвечает за видеосопровождение мероприятий, презентационные ролики спикеров и запуск новых форматов.</p>
+<p class="team-bio-text">Задача команды — выстроить системную работу и усилить медиа-образ клуба.</p><p class="team-bio-text">Воспринимает участие в Бизнес-клубе МГУ как возможность создавать продукт в сильной команде и быть частью крупных проектов.</p>
+<blockquote class="team-quote">Для меня участие в Бизнес-клубе МГУ — это возможность создавать продукт в сильной команде и участвовать в организации крупных проектов.</blockquote>
+</article>
+<article class="team-bio-card neon-panel lift-on-hover" data-animate="fade-up">
+<div class="team-bio-top">
+<div class="team-bio-photo is-generated"><img alt="" decoding="async" loading="lazy" src="assets/img/team/olga-polyakova.jpg"/></div>
+<div class="team-bio-meta">
+<div class="team-bio-name">Ольга Полякова</div>
+<div class="team-bio-role">Руководитель отдела копирайтинга</div>
+<div class="team-bio-faculty">2 курс · Факультет журналистики</div>
+</div>
+</div>
+<p class="team-bio-lead">Руководит отделом копирайтинга в Бизнес-клубе МГУ и вместе с командой отвечает за тексты, которые формируют голос клуба.</p>
+<p class="team-bio-text">Пишет посты, анонсы спикеров, формирует рубрики и занимается всем, что связано с текстами в Бизнес-клубе.</p><p class="team-bio-text">Для команды важно, чтобы публикации были качественно написаны и оформлены, поэтому каждый текст — это большой и внимательный труд.</p>
+<blockquote class="team-quote">Нам важно, чтобы публикации были качественно написаны и оформлены, поэтому каждый текст — это огромный труд.</blockquote>
+</article>
+</div>
+</section>
+<section class="section" id="join-team">
+<div class="cta-panel neon-panel lift-on-hover" data-animate="blur-in">
+<div data-animate="fade-up" data-stagger="90">
+<p class="eyebrow" data-animate="fade-down">Хочешь в команду?</p>
+<h2 data-animate="fade-up">Следи за анонсами набора организаторов</h2>
+<p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
+        Периодически клуб открывает набор новых организаторов. Обычно в командах есть задачи в SMM, ивент-менеджменте, работе со спикерами и партнёрами, фото и видео, дизайне, PR и IT.
+      </p>
+</div>
+<div class="cta-actions" data-animate="scale-in" style="--sa-delay: 220ms">
+<a class="btn btn-primary" href="https://t.me/bcmsu" rel="noopener noreferrer" target="_blank">Telegram клуба</a>
+<button class="btn btn-ghost" data-open-feedback="" type="button">Задать вопрос</button>
+</div>
+</div>
+</section>
+<section class="process section" id="how-we-create">
+<div class="section-head" data-animate="fade-up">
+<p class="eyebrow">Процесс</p>
+<h2>Как мы создаём масштабные события</h2>
+</div>
+<p class="section-lead" data-animate="fade-up" style="--sa-delay: 120ms">
           Горизонтальный аккордеон на десктопе и переключатели на мобильном. Скролл-анимации проигрываются в обе стороны.
         </p>
-
-        <div class="process-wrap" data-animate="fade-up" style="--sa-delay: 220ms">
-          <div class="process-accordion" aria-label="Этапы подготовки мероприятия">
-            <button
-              class="process-panel is-active"
-              type="button"
-              data-step="01"
-              data-img="assets/img/event-01-tsypkin.jpg"
-              aria-pressed="true"
-            >
-              <div class="process-panel-bg" aria-hidden="true" style="--process-bg: url('assets/img/event-01-tsypkin.jpg')"></div>
-              <div class="process-panel-scrim" aria-hidden="true"></div>
-
-              <div class="process-panel-compact">
-                <div class="process-step">01</div>
-                <div class="process-ctitle">Бриф</div>
-              </div>
-
-              <div class="process-panel-full">
-                <div class="process-step">01</div>
-                <h3>Бриф и цели</h3>
-                <p>Фиксируем задачу, формат, аудиторию и критерии успеха. Собираем ограничения и договариваемся о «смысле» события.</p>
-              </div>
-            </button>
-
-            <button class="process-panel" type="button" data-step="02" data-img="assets/img/event-02-pitch.jpg" aria-pressed="false">
-              <div class="process-panel-bg" aria-hidden="true" style="--process-bg: url('assets/img/event-02-pitch.jpg')"></div>
-              <div class="process-panel-scrim" aria-hidden="true"></div>
-
-              <div class="process-panel-compact">
-                <div class="process-step">02</div>
-                <div class="process-ctitle">Сценарий</div>
-              </div>
-
-              <div class="process-panel-full">
-                <div class="process-step">02</div>
-                <h3>Сценарий и сетка</h3>
-                <p>Собираем структуру: хронометраж, блоки, переходы, интерактив.</p>
-              </div>
-            </button>
-
-            <button class="process-panel" type="button" data-step="03" data-img="assets/img/network.jpg" aria-pressed="false">
-              <div class="process-panel-bg" aria-hidden="true" style="--process-bg: url('assets/img/network.jpg')"></div>
-              <div class="process-panel-scrim" aria-hidden="true"></div>
-
-              <div class="process-panel-compact">
-                <div class="process-step">03</div>
-                <div class="process-ctitle">Спикеры</div>
-              </div>
-
-              <div class="process-panel-full">
-                <div class="process-step">03</div>
-                <h3>Спикеры и кураторство</h3>
-                <p>Подбираем сильных гостей, проводим бриф, согласования и готовим контент.</p>
-              </div>
-            </button>
-
-            <button class="process-panel" type="button" data-step="04" data-img="assets/img/events.jpg" aria-pressed="false">
-              <div class="process-panel-bg" aria-hidden="true" style="--process-bg: url('assets/img/events.jpg')"></div>
-              <div class="process-panel-scrim" aria-hidden="true"></div>
-
-              <div class="process-panel-compact">
-                <div class="process-step">04</div>
-                <div class="process-ctitle">Продакшн</div>
-              </div>
-
-              <div class="process-panel-full">
-                <div class="process-step">04</div>
-                <h3>Площадка и продакшн</h3>
-                <p>Техника, свет, звук, сцена, бэкстейдж. Детально прописываем ТЗ и собираем команду на площадке.</p>
-              </div>
-            </button>
-
-            <button class="process-panel" type="button" data-step="05" data-img="assets/img/invests.jpg" aria-pressed="false">
-              <div class="process-panel-bg" aria-hidden="true" style="--process-bg: url('assets/img/invests.jpg')"></div>
-              <div class="process-panel-scrim" aria-hidden="true"></div>
-
-              <div class="process-panel-compact">
-                <div class="process-step">05</div>
-                <div class="process-ctitle">Маркетинг</div>
-              </div>
-
-              <div class="process-panel-full">
-                <div class="process-step">05</div>
-                <h3>Маркетинг и регистрации</h3>
-                <p>Анонсы, креативы, каналы, партнёры. Прогреваем аудиторию и доводим до регистрации без лишнего трения.</p>
-              </div>
-            </button>
-
-            <button class="process-panel" type="button" data-step="06" data-img="assets/img/event-03-alyasov.jpg" aria-pressed="false">
-              <div class="process-panel-bg" aria-hidden="true" style="--process-bg: url('assets/img/event-03-alyasov.jpg')"></div>
-              <div class="process-panel-scrim" aria-hidden="true"></div>
-
-              <div class="process-panel-compact">
-                <div class="process-step">06</div>
-                <div class="process-ctitle">День Х</div>
-              </div>
-
-              <div class="process-panel-full">
-                <div class="process-step">06</div>
-                <h3>День мероприятия</h3>
-                <p>Координация, сервис, тайминги, запасные планы. Контроль качества на каждом шаге, чтобы участники были счастливы.</p>
-              </div>
-            </button>
-
-            <button class="process-panel" type="button" data-step="07" data-img="assets/img/event-04-ryasova.jpg" aria-pressed="false">
-              <div class="process-panel-bg" aria-hidden="true" style="--process-bg: url('assets/img/event-04-ryasova.jpg')"></div>
-              <div class="process-panel-scrim" aria-hidden="true"></div>
-
-              <div class="process-panel-compact">
-                <div class="process-step">07</div>
-                <div class="process-ctitle">Пост</div>
-              </div>
-
-              <div class="process-panel-full">
-                <div class="process-step">07</div>
-                <h3>Пост-коммуникации</h3>
-                <p>Фото/видео, нарезки, результаты, благодарности партнёрам. Сохраняем эффект и усиливаем бренд клуба.</p>
-              </div>
-            </button>
-          </div>
-
-          <div class="process-mobile" aria-label="Этапы подготовки (мобильная версия)">
-            <div class="process-mobile-tabs" id="process-mobile-tabs"></div>
-            <div class="process-mobile-stage neon-panel" id="process-mobile-stage"></div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>&copy; <span id="current-year"></span> Бизнес-клуб МГУ. Все права защищены.</p>
-    </footer>
-
-    <div id="google_translate_element" class="translate-widget" aria-hidden="true"></div>
-
-    <div class="sheet-overlay" id="sheet-overlay" hidden></div>
-    <section class="application-sheet" id="application-sheet" aria-hidden="true" aria-labelledby="sheet-title">
-      <button type="button" class="sheet-close" id="sheet-close" aria-label="Закрыть форму">
-        &times;
+<div class="process-wrap" data-animate="fade-up" style="--sa-delay: 220ms">
+<div aria-label="Этапы подготовки мероприятия" class="process-accordion">
+<button aria-pressed="true" class="process-panel is-active" data-img="assets/img/event-01-tsypkin.jpg" data-step="01" type="button">
+<div aria-hidden="true" class="process-panel-bg" style="--process-bg: url('assets/img/event-01-tsypkin.jpg')"></div>
+<div aria-hidden="true" class="process-panel-scrim"></div>
+<div class="process-panel-compact">
+<div class="process-step">01</div>
+<div class="process-ctitle">Бриф</div>
+</div>
+<div class="process-panel-full">
+<div class="process-step">01</div>
+<h3>Бриф и цели</h3>
+<p>Фиксируем задачу, формат, аудиторию и критерии успеха. Собираем ограничения и договариваемся о «смысле» события.</p>
+</div>
+</button>
+<button aria-pressed="false" class="process-panel" data-img="assets/img/event-02-pitch.jpg" data-step="02" type="button">
+<div aria-hidden="true" class="process-panel-bg" style="--process-bg: url('assets/img/event-02-pitch.jpg')"></div>
+<div aria-hidden="true" class="process-panel-scrim"></div>
+<div class="process-panel-compact">
+<div class="process-step">02</div>
+<div class="process-ctitle">Сценарий</div>
+</div>
+<div class="process-panel-full">
+<div class="process-step">02</div>
+<h3>Сценарий и сетка</h3>
+<p>Собираем структуру: хронометраж, блоки, переходы, интерактив.</p>
+</div>
+</button>
+<button aria-pressed="false" class="process-panel" data-img="assets/img/network.jpg" data-step="03" type="button">
+<div aria-hidden="true" class="process-panel-bg" style="--process-bg: url('assets/img/network.jpg')"></div>
+<div aria-hidden="true" class="process-panel-scrim"></div>
+<div class="process-panel-compact">
+<div class="process-step">03</div>
+<div class="process-ctitle">Спикеры</div>
+</div>
+<div class="process-panel-full">
+<div class="process-step">03</div>
+<h3>Спикеры и кураторство</h3>
+<p>Подбираем сильных гостей, проводим бриф, согласования и готовим контент.</p>
+</div>
+</button>
+<button aria-pressed="false" class="process-panel" data-img="assets/img/events.jpg" data-step="04" type="button">
+<div aria-hidden="true" class="process-panel-bg" style="--process-bg: url('assets/img/events.jpg')"></div>
+<div aria-hidden="true" class="process-panel-scrim"></div>
+<div class="process-panel-compact">
+<div class="process-step">04</div>
+<div class="process-ctitle">Продакшн</div>
+</div>
+<div class="process-panel-full">
+<div class="process-step">04</div>
+<h3>Площадка и продакшн</h3>
+<p>Техника, свет, звук, сцена, бэкстейдж. Детально прописываем ТЗ и собираем команду на площадке.</p>
+</div>
+</button>
+<button aria-pressed="false" class="process-panel" data-img="assets/img/invests.jpg" data-step="05" type="button">
+<div aria-hidden="true" class="process-panel-bg" style="--process-bg: url('assets/img/invests.jpg')"></div>
+<div aria-hidden="true" class="process-panel-scrim"></div>
+<div class="process-panel-compact">
+<div class="process-step">05</div>
+<div class="process-ctitle">Маркетинг</div>
+</div>
+<div class="process-panel-full">
+<div class="process-step">05</div>
+<h3>Маркетинг и регистрации</h3>
+<p>Анонсы, креативы, каналы, партнёры. Прогреваем аудиторию и доводим до регистрации без лишнего трения.</p>
+</div>
+</button>
+<button aria-pressed="false" class="process-panel" data-img="assets/img/event-03-alyasov.jpg" data-step="06" type="button">
+<div aria-hidden="true" class="process-panel-bg" style="--process-bg: url('assets/img/event-03-alyasov.jpg')"></div>
+<div aria-hidden="true" class="process-panel-scrim"></div>
+<div class="process-panel-compact">
+<div class="process-step">06</div>
+<div class="process-ctitle">День Х</div>
+</div>
+<div class="process-panel-full">
+<div class="process-step">06</div>
+<h3>День мероприятия</h3>
+<p>Координация, сервис, тайминги, запасные планы. Контроль качества на каждом шаге, чтобы участники были счастливы.</p>
+</div>
+</button>
+<button aria-pressed="false" class="process-panel" data-img="assets/img/event-04-ryasova.jpg" data-step="07" type="button">
+<div aria-hidden="true" class="process-panel-bg" style="--process-bg: url('assets/img/event-04-ryasova.jpg')"></div>
+<div aria-hidden="true" class="process-panel-scrim"></div>
+<div class="process-panel-compact">
+<div class="process-step">07</div>
+<div class="process-ctitle">Пост</div>
+</div>
+<div class="process-panel-full">
+<div class="process-step">07</div>
+<h3>Пост-коммуникации</h3>
+<p>Фото/видео, нарезки, результаты, благодарности партнёрам. Сохраняем эффект и усиливаем бренд клуба.</p>
+</div>
+</button>
+</div>
+<div aria-label="Этапы подготовки (мобильная версия)" class="process-mobile">
+<div class="process-mobile-tabs" id="process-mobile-tabs"></div>
+<div class="process-mobile-stage neon-panel" id="process-mobile-stage"></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<p>© <span id="current-year"></span> Бизнес-клуб МГУ. Все права защищены.</p>
+</footer>
+<div aria-hidden="true" class="translate-widget" id="google_translate_element"></div>
+<div class="sheet-overlay" hidden="" id="sheet-overlay"></div>
+<section aria-hidden="true" aria-labelledby="sheet-title" class="application-sheet" id="application-sheet">
+<button aria-label="Закрыть форму" class="sheet-close" id="sheet-close" type="button">
+        ×
       </button>
-      <p class="eyebrow">Заявка в клуб</p>
-      <h3 id="sheet-title">Подать заявку в Бизнес-клуб МГУ</h3>
-      <form id="application-form" class="application-form">
-        <label>
+<p class="eyebrow">Заявка в клуб</p>
+<h3 id="sheet-title">Подать заявку в Бизнес-клуб МГУ</h3>
+<form class="application-form" id="application-form">
+<label>
           ФИО
-          <input type="text" name="fullname" placeholder="Иванов Иван Иванович" required />
-        </label>
-        <div class="form-two-col">
-          <label>
+          <input name="fullname" placeholder="Иванов Иван Иванович" required="" type="text"/>
+</label>
+<div class="form-two-col">
+<label>
             Почта
-            <input type="email" name="email" placeholder="example@mail.com" required />
-          </label>
-          <label>
+            <input name="email" placeholder="example@mail.com" required="" type="email"/>
+</label>
+<label>
             Телефон
-            <input type="tel" name="phone" placeholder="+7 (900) 000-00-00" required />
-          </label>
-        </div>
-        <label>
+            <input name="phone" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
+</label>
+</div>
+<label>
           Информация о проекте участника
-          <textarea
-            name="project_info"
-            rows="4"
-            placeholder="Коротко: идея, стадия, команда, цель участия в клубе"
-            required
-          ></textarea>
-        </label>
-        <label>
+          <textarea name="project_info" placeholder="Коротко: идея, стадия, команда, цель участия в клубе" required="" rows="4"></textarea>
+</label>
+<label>
           Дополнительная информация
-          <textarea
-            name="extra_info"
-            rows="3"
-            placeholder="Ссылки, достижения, вопросы к клубу и т.д."
-          ></textarea>
-        </label>
-        <button type="submit" class="btn btn-primary btn-submit">Отправить заявку</button>
-        <p class="status-message" id="application-status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-
-    <div class="modal-overlay" id="feedback-overlay" hidden></div>
-    <section class="feedback-modal neon-panel" id="feedback-modal" aria-hidden="true" aria-labelledby="feedback-title">
-      <button type="button" class="sheet-close" id="feedback-close" aria-label="Закрыть форму">
-        &times;
+          <textarea name="extra_info" placeholder="Ссылки, достижения, вопросы к клубу и т.д." rows="3"></textarea>
+</label>
+<button class="btn btn-primary btn-submit" type="submit">Отправить заявку</button>
+<p aria-live="polite" class="status-message" id="application-status" role="status"></p>
+</form>
+</section>
+<div class="modal-overlay" hidden="" id="feedback-overlay"></div>
+<section aria-hidden="true" aria-labelledby="feedback-title" class="feedback-modal neon-panel" id="feedback-modal">
+<button aria-label="Закрыть форму" class="sheet-close" id="feedback-close" type="button">
+        ×
       </button>
-      <p class="eyebrow">Форма обратной связи</p>
-      <h3 id="feedback-title">Напишите нам</h3>
-      <form id="feedback-form" class="feedback-popup-form">
-        <label>
+<p class="eyebrow">Форма обратной связи</p>
+<h3 id="feedback-title">Напишите нам</h3>
+<form class="feedback-popup-form" id="feedback-form">
+<label>
           Ваше имя
-          <input type="text" name="name" placeholder="Иван Иванов" required />
-        </label>
-        <div class="form-two-col">
-          <label>
+          <input name="name" placeholder="Иван Иванов" required="" type="text"/>
+</label>
+<div class="form-two-col">
+<label>
             Почта
-            <input type="email" name="email" placeholder="example@mail.com" required />
-          </label>
-          <label>
+            <input name="email" placeholder="example@mail.com" required="" type="email"/>
+</label>
+<label>
             Телефон
-            <input type="tel" name="phone" placeholder="+7 (900) 000-00-00" required />
-          </label>
-        </div>
-        <label>
+            <input name="phone" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
+</label>
+</div>
+<label>
           Сообщение
-          <textarea
-            name="message"
-            rows="4"
-            placeholder="Коротко опишите ваш вопрос или идею"
-            required
-          ></textarea>
-        </label>
-        <button type="submit" class="btn btn-primary btn-submit">Отправить сообщение</button>
-        <p class="status-message" id="feedback-status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-
-    <script>
+          <textarea name="message" placeholder="Коротко опишите ваш вопрос или идею" required="" rows="4"></textarea>
+</label>
+<button class="btn btn-primary btn-submit" type="submit">Отправить сообщение</button>
+<p aria-live="polite" class="status-message" id="feedback-status" role="status"></p>
+</form>
+</section>
+<script>
       function googleTranslateElementInit() {
         new google.translate.TranslateElement(
           {
@@ -561,9 +495,8 @@
         );
       }
     </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/team-page.js" defer></script>
-  </body>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script defer="" src="assets/js/main.js"></script>
+<script defer="" src="assets/js/team-page.js"></script>
+</body>
 </html>

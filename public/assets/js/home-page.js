@@ -9,7 +9,7 @@
     return Math.max(a, Math.min(b, n));
   }
 
-  function initHomeAnnouncements() {
+  function initHomeAnnouncementsLegacy() {
     const shell = document.getElementById("home-announcements-shell");
     const list = document.getElementById("home-announcements-list");
     if (!shell || !list) return;
@@ -168,64 +168,117 @@
           q: "Где проходят открытые мероприятия клуба?",
           aHtml:
             "Большинство мероприятий проходит в Москве. Точная площадка всегда указана в анонсе.<br><br><strong>Чаще всего:</strong>" +
-            "<ul><li>аудитории/залы университета</li><li>партнёрские площадки</li><li>коворкинги</li></ul>"
+            "<ul><li>аудитории и залы университета</li><li>партнёрские площадки</li><li>коворкинги</li></ul>"
         },
         {
           q: "Как попасть на открытые мероприятия клуба?",
           bullets: [
-            "Откройте анонс мероприятия в соцсетях/на сайте.",
+            "Откройте анонс мероприятия в соцсетях или на сайте.",
             "Перейдите по ссылке на регистрацию.",
-            "Дождитесь подтверждения (если предусмотрено) и приходите вовремя."
+            "Дождитесь подтверждения, если оно предусмотрено, и приходите вовремя."
           ]
         },
         {
           q: "Можно ли прийти, если я не студент МГУ?",
           bullets: [
-            "Да — на многие открытые мероприятия можно попасть всем желающим (если это указано в анонсе).",
-            "Для некоторых форматов действует приоритет по спискам (например, студенты/выпускники).",
+            "Да — на многие открытые мероприятия можно попасть всем желающим, если это указано в анонсе.",
+            "Для некоторых форматов действует приоритет по спискам, например для студентов или выпускников.",
             "Правила входа всегда прописаны в регистрации и посте-анонсе."
           ]
         },
         {
-          q: "Можно ли передать билет/регистрацию другу?",
+          q: "Можно ли передать билет или регистрацию другу?",
           bullets: [
             "Зависит от формата и площадки: иногда именные списки обязательны.",
-            "Если есть возможность передачи — это будет указано в регистрации.",
+            "Если есть возможность передачи, это будет указано в регистрации.",
             "Если сомневаетесь — напишите организаторам в Telegram."
           ]
+        },
+        {
+          q: "Как узнать расписание и анонсы открытых встреч?",
+          aHtml: "Всё самое актуальное — в нашем <a href=\"https://t.me/bcmsu\" target=\"_blank\" rel=\"noopener noreferrer\">Telegram-канале</a>. Там выходят анонсы, посты с итогами прошедших мероприятий и объявления."
+        },
+        {
+          q: "Будут ли записи трансляций для тех, кто не попал?",
+          aHtml: "Трансляции и записи мы не делаем, но после мероприятий публикуем посты, чтобы вы были в курсе прошедшего, даже если не смогли прийти."
+        },
+        {
+          q: "Участие бесплатное или нужен взнос?",
+          aHtml: "Все открытые мероприятия клуба бесплатные."
         }
       ],
       team: [
         {
           q: "Как попасть в команду организаторов?",
           bullets: [
-            "Откройте страницу команды и выберите направление, которое вам ближе.",
-            "Нажмите «Подать заявку» и заполните форму.",
-            "Мы свяжемся и предложим короткий созвон/задачу на вход."
+            "Периодически мы открываем набор новых организаторов.",
+            "Следите за анонсами в Telegram-канале — там появляются условия вступления и контакты для связи.",
+            "Откликайтесь на набор и будьте готовы коротко рассказать о себе и о том, чем хотите заниматься."
           ]
         },
         {
           q: "Нужно ли иметь опыт организации мероприятий?",
           bullets: [
             "Не обязательно — мы даём вводную и поддержку.",
-            "Важно желание делать результат и ответственность за свой кусок.",
+            "Важно желание делать результат и ответственность за свой участок работы.",
             "Опыт — это плюс, но не барьер."
           ]
+        },
+        {
+          q: "Кто входит в команду клуба и как с вами связаться?",
+          aHtml: "Команда — это студенты МГУ, которые развивают Бизнес-клуб. Связаться с нами можно через <a href=\"https://t.me/bcmsu\" target=\"_blank\" rel=\"noopener noreferrer\">Telegram</a> или форму обратной связи на сайте."
+        },
+        {
+          q: "Какие задачи обычно берут на себя организаторы?",
+          bullets: [
+            "SMM и написание постов.",
+            "Ивент-менеджмент и помощь спикерам.",
+            "Фандрайзинг и работа с партнёрами.",
+            "Фото, видео, дизайн, PR и техническая поддержка."
+          ]
+        },
+        {
+          q: "Дают ли сертификаты или рекомендации после работы в команде?",
+          aHtml: "Да, активные участники команды могут получить письмо-рекомендацию или сертификат об организаторском опыте — это обсуждается индивидуально."
         }
       ],
       closed: [
         {
-          q: "Что такое закрытый клуб и кому он подходит?",
+          q: "Что такое закрытый клуб и чем он отличается от открытых мероприятий?",
           bullets: [
-            "Это среда для тех, кто уже делает проект/бизнес и хочет ускорить рост.",
-            "Подходит предпринимателям, продуктовым людям и лидерам команд.",
-            "Фокус — качество окружения и практические разборы."
+            "Закрытый клуб — это сообщество резидентов, которые работают над своими проектами системно.",
+            "Здесь больше экспертизы, доступа к менторам и инвесторам.",
+            "Встречи проходят в узком кругу и предполагают более глубокую вовлечённость."
           ]
         },
         {
-          q: "Сколько стоит участие?",
+          q: "Кто может стать резидентом? Есть ли отбор?",
+          bullets: [
+            "Да, отбор есть.",
+            "Мы смотрим на мотивацию, наличие проекта или идеи и готовность участвовать в жизни клуба.",
+            "Подойдём, если вы уже что-то делаете или чётко понимаете, что хотите запускать."
+          ]
+        },
+        {
+          q: "Какие привилегии получают резиденты?",
+          bullets: [
+            "Закрытые встречи с основателями крупных компаний и предпринимателями.",
+            "Мастермайнды и разборы бизнес-кейсов участников.",
+            "Инвестиционные сессии и обсуждение проектов.",
+            "Бизнес-миссии и специальные форматы, доступные только резидентам."
+          ]
+        },
+        {
+          q: "Какие требования для вступления?",
           aHtml:
-            "Стоимость зависит от формата и сезона. Актуальные условия — в анонсах и у команды клуба. <br><br>Напишите нам — подскажем подходящий вариант."
+            "<strong>Предпринимательский трек:</strong> выручка от 10 млн ₽ в год, или чистая прибыль от 1 млн ₽, или привлечённые инвестиции от 5 млн ₽.<br><br>" +
+            "<strong>Карьерный трек:</strong> позиции уровня C-suite или руководители направлений с опытом от 2 лет в консалтинге топ-уровня либо компаниях-лидерах рынка.<br><br>" +
+            "<strong>Инвестиционный трек:</strong> бизнес-ангелы, партнёры фондов, руководители family offices с подтверждённым опытом инвестиций.<br><br>" +
+            "<strong>Rising Stars:</strong> студенты или молодые выпускники МГУ до 27 лет с сильной предпринимательской динамикой и рекомендацией от действующих резидентов."
+        },
+        {
+          q: "Сколько стоит участие?",
+          aHtml: "Стоимость зависит от формата и сезона. Актуальные условия — в анонсах и у команды клуба. Напишите нам, и мы подскажем подходящий вариант."
         }
       ]
     };
@@ -417,21 +470,26 @@
      About: photo exposure cycling
      ========================== */
 
-  function initAboutMediaCycle() {
-    const wraps = Array.from(document.querySelectorAll(".media-cycle[data-cycle-sources]"));
+  async function initAboutMediaCycle() {
+    const wraps = Array.from(document.querySelectorAll(".media-cycle[data-cycle-folder]"));
     if (!wraps.length) return;
-    if (prefersReducedMotion) return;
 
     const INTERVAL_MS = 5000;
     const ROW_DELAY_MS = 300;
+    const MANIFEST_URL = "/api/about-media-manifest";
+    const FALLBACK_IMAGE = "assets/img/card-placeholder.svg";
+    let manifestGroups = {};
 
-    function parseSources(node) {
-      return String(node.dataset.cycleSources || "")
-        .split("|")
-        .map(function (s) {
-          return String(s || "").trim();
-        })
-        .filter(Boolean);
+    try {
+      const response = await fetch(MANIFEST_URL, { cache: "no-store" });
+      if (response.ok) {
+        const payload = await response.json();
+        if (payload && typeof payload.groups === "object" && payload.groups) {
+          manifestGroups = payload.groups;
+        }
+      }
+    } catch (_error) {
+      manifestGroups = {};
     }
 
     function getDir(node) {
@@ -439,29 +497,54 @@
       return d === "right" ? "right" : "left";
     }
 
-    function ensureImgs(node, sources) {
+    function getAlt(node) {
+      return String(node.dataset.cycleAlt || "").trim();
+    }
+
+    function getSources(node) {
+      const folder = String(node.dataset.cycleFolder || "").trim();
+      const sources = Array.isArray(manifestGroups[folder]) ? manifestGroups[folder] : [];
+      return sources
+        .map(function (src) {
+          return String(src || "").trim();
+        })
+        .filter(Boolean);
+    }
+
+    function ensureImgs(node, sources, altText) {
       let imgs = Array.from(node.querySelectorAll("img.media-cycle-img"));
 
-      if (imgs.length >= 2) return imgs.slice(0, 2);
+      if (imgs.length < 2) {
+        node.innerHTML = "";
+        const img1 = document.createElement("img");
+        img1.className = "media-cycle-img is-active";
+        img1.loading = "lazy";
 
-      node.innerHTML = "";
-      const img1 = document.createElement("img");
-      img1.className = "media-cycle-img is-active";
-      img1.alt = "";
-      img1.loading = "lazy";
-      img1.src = sources[0] || "";
+        const img2 = document.createElement("img");
+        img2.className = "media-cycle-img";
+        img2.loading = "lazy";
+        img2.alt = "";
+        img2.setAttribute("aria-hidden", "true");
 
-      const img2 = document.createElement("img");
-      img2.className = "media-cycle-img";
-      img2.alt = "";
-      img2.loading = "lazy";
-      img2.src = sources[1] || sources[0] || "";
+        node.appendChild(img1);
+        node.appendChild(img2);
+        imgs = [img1, img2];
+      }
 
-      node.appendChild(img1);
-      node.appendChild(img2);
+      const primarySrc = sources[0] || FALLBACK_IMAGE;
+      const secondarySrc = sources[1] || primarySrc;
 
-      imgs = [img1, img2];
-      return imgs;
+      imgs[0].src = primarySrc;
+      imgs[0].alt = altText;
+      imgs[0].classList.add("is-active");
+      imgs[0].removeAttribute("aria-hidden");
+
+      imgs[1].src = secondarySrc;
+      imgs[1].alt = "";
+      imgs[1].classList.remove("is-active");
+      imgs[1].setAttribute("aria-hidden", "true");
+
+      return imgs.slice(0, 2);
     }
 
     function swapOne(node) {
@@ -532,16 +615,11 @@
       }, 500);
     }
 
-    // init states
-    wraps.forEach(function (node) {
-      const sources = parseSources(node);
-      if (sources.length < 2) return;
+    const activeWraps = [];
 
-      const imgs = ensureImgs(node, sources);
-      imgs[0].src = sources[0];
-      imgs[0].classList.add("is-active");
-      imgs[1].classList.remove("is-active");
-      imgs[1].src = sources[1] || sources[0];
+    wraps.forEach(function (node) {
+      const sources = getSources(node);
+      const imgs = ensureImgs(node, sources, getAlt(node));
 
       node.__cycleState = {
         sources: sources,
@@ -550,13 +628,20 @@
         index: 0,
         busy: false
       };
+
+      node.classList.add("media-cycle-ready");
+
+      if (!prefersReducedMotion && sources.length > 1) {
+        activeWraps.push(node);
+      }
     });
 
-    // timers
+    if (!activeWraps.length) return;
+
     let timer = 0;
 
     function tick() {
-      wraps.forEach(function (node, idx) {
+      activeWraps.forEach(function (node, idx) {
         window.setTimeout(function () {
           swapOne(node);
         }, idx * ROW_DELAY_MS);
@@ -574,7 +659,6 @@
       timer = 0;
     }
 
-    // Start with delay so first exposure isn't immediate.
     window.setTimeout(function () {
       if (!document.hidden) tick();
       start();
@@ -584,6 +668,275 @@
       if (document.hidden) stop();
       else start();
     });
+  }
+
+  function initHomeAnnouncements() {
+    const section = document.getElementById("events");
+    if (!section) return;
+
+    const marqueeTrack = section.querySelector(".events-marquee-track");
+    const list = section.querySelector(".events-grid:not(.events-grid--live)");
+    if (!marqueeTrack || !list) return;
+
+    const shell = document.getElementById("home-announcements-shell");
+    const DATA_URL = "assets/data/events.json";
+    const HOME_LIMIT = 4;
+    const PAST_WINDOW_MS = 45 * 24 * 60 * 60 * 1000;
+    const MAX_HOME_DELTA_MS = 120 * 24 * 60 * 60 * 1000;
+    const ruDateTime = new Intl.DateTimeFormat("ru-RU", {
+      day: "2-digit",
+      month: "long",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+    const ruDate = new Intl.DateTimeFormat("ru-RU", {
+      day: "2-digit",
+      month: "long"
+    });
+
+    function safeText(value) {
+      return String(value || "").trim();
+    }
+
+    function parseIso(value) {
+      if (!value) return null;
+      const parsed = new Date(value);
+      return Number.isFinite(parsed.getTime()) ? parsed : null;
+    }
+
+    function canonicalUrl(value) {
+      const raw = safeText(value);
+      if (!raw) return "";
+
+      try {
+        const parsed = new URL(raw, window.location.href);
+        const path = parsed.pathname.replace(/\/+$/, "") || "/";
+        return (parsed.protocol + "//" + parsed.host.toLowerCase() + path + parsed.search).toLowerCase();
+      } catch (_error) {
+        return raw.toLowerCase();
+      }
+    }
+
+    function isTelegramInternalUrl(value) {
+      const raw = safeText(value).toLowerCase();
+      if (!raw) return true;
+      if (raw.startsWith("tg://") || raw.startsWith("?q=")) return true;
+
+      try {
+        const parsed = new URL(raw, window.location.href);
+        return parsed.hostname.endsWith("t.me") || parsed.hostname.endsWith("telegram.me");
+      } catch (_error) {
+        return true;
+      }
+    }
+
+    function isNonRegistrationUrl(value) {
+      const raw = safeText(value).toLowerCase();
+      if (!raw) return true;
+      if (isTelegramInternalUrl(raw)) return true;
+
+      return [
+        "vk.com/album",
+        "vk.ru/album",
+        "instagram.com/p/",
+        "instagram.com/reel/",
+        "youtube.com/watch",
+        "youtu.be/"
+      ].some(function (pattern) {
+        return raw.includes(pattern);
+      });
+    }
+
+    function formatStart(value) {
+      const date = parseIso(value);
+      if (!date) return "Дата уточняется";
+
+      const hasTime = date.getHours() !== 0 || date.getMinutes() !== 0;
+      return hasTime ? ruDateTime.format(date) : ruDate.format(date);
+    }
+
+    function renderMarquee(items) {
+      const titles = items
+        .map(function (item) {
+          return safeText(item.title);
+        })
+        .filter(Boolean);
+
+      if (!titles.length) return;
+
+      const cycles = Math.max(2, Math.ceil(10 / titles.length));
+      const fragment = document.createDocumentFragment();
+      marqueeTrack.innerHTML = "";
+
+      for (let round = 0; round < cycles; round += 1) {
+        titles.forEach(function (title) {
+          const item = document.createElement("span");
+          item.className = "marquee-item";
+          item.textContent = title;
+          fragment.appendChild(item);
+
+          const separator = document.createElement("span");
+          separator.className = "marquee-separator";
+          separator.setAttribute("aria-hidden", "true");
+          separator.textContent = "♦";
+          fragment.appendChild(separator);
+        });
+      }
+
+      marqueeTrack.appendChild(fragment);
+    }
+
+    function buildCardHref(item) {
+      return safeText(item.registration_url) || safeText(item.source_post_url) || "events.html";
+    }
+
+    function renderCard(item, index) {
+      const card = document.createElement("article");
+      card.className = "event-card event-card--home-auto neon-panel lift-on-hover";
+      card.setAttribute("data-animate", index % 2 === 0 ? "fade-up" : "scale-in");
+
+      const link = document.createElement("a");
+      link.className = "event-card-home-link";
+      link.href = buildCardHref(item);
+      if (/^https?:\/\//i.test(link.href)) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+
+      const media = document.createElement("img");
+      media.className = "event-card-home-media";
+      media.loading = "lazy";
+      media.src = safeText(item.cover_image) || "assets/img/events.jpg";
+      media.alt = safeText(item.title) || "Анонс мероприятия";
+
+      const body = document.createElement("div");
+      body.className = "event-card-home-body";
+
+      const date = document.createElement("p");
+      date.className = "event-card-home-date";
+      date.textContent = formatStart(item.start_at);
+
+      const title = document.createElement("h3");
+      title.className = "event-card-home-title";
+      title.textContent = safeText(item.title) || "РђРЅРѕРЅСЃ";
+
+      const meta = document.createElement("p");
+      meta.className = "event-card-home-meta";
+      meta.textContent = safeText(item.location) || "РњРµСЃС‚Рѕ СѓС‚РѕС‡РЅСЏРµС‚СЃСЏ";
+
+      body.appendChild(date);
+      body.appendChild(title);
+      body.appendChild(meta);
+      link.appendChild(media);
+      link.appendChild(body);
+      card.appendChild(link);
+      return card;
+    }
+
+    function isHomeCandidate(item, now) {
+      if (safeText(item.content_kind) !== "announcement") return false;
+
+      const start = parseIso(item.start_at);
+      if (!start || start.getTime() < now.getTime() - PAST_WINDOW_MS) return false;
+
+      const registrationUrl = safeText(item.registration_url);
+      if (!registrationUrl || isNonRegistrationUrl(registrationUrl)) return false;
+
+      const published = parseIso(item.published_at);
+      if (published) {
+        const delta = start.getTime() - published.getTime();
+        if (delta < -2 * 24 * 60 * 60 * 1000) return false;
+        if (delta > MAX_HOME_DELTA_MS) return false;
+      }
+
+      return true;
+    }
+
+    function homeSignature(item) {
+      return [
+        safeText(item.title).toLowerCase(),
+        safeText(item.start_at),
+        canonicalUrl(item.registration_url)
+      ].join("|");
+    }
+
+    function compareHomeItems(a, b, now) {
+      const aStart = parseIso(a.start_at);
+      const bStart = parseIso(b.start_at);
+      const aPublished = parseIso(a.published_at);
+      const bPublished = parseIso(b.published_at);
+
+      function rank(start, published) {
+        if (!start) return [2, Number.POSITIVE_INFINITY, 0];
+        if (start.getTime() >= now.getTime()) {
+          return [0, start.getTime(), -1 * (published ? published.getTime() : 0)];
+        }
+        return [1, -1 * start.getTime(), -1 * (published ? published.getTime() : 0)];
+      }
+
+      const aRank = rank(aStart, aPublished);
+      const bRank = rank(bStart, bPublished);
+
+      for (let index = 0; index < aRank.length; index += 1) {
+        if (aRank[index] !== bRank[index]) return aRank[index] - bRank[index];
+      }
+      return 0;
+    }
+
+    function pickHomeItems(events) {
+      const now = new Date();
+      const candidates = Array.isArray(events)
+        ? events.filter(function (item) {
+            return isHomeCandidate(item, now);
+          })
+        : [];
+      const unique = [];
+      const seen = new Set();
+
+      candidates.forEach(function (item) {
+        const signature = homeSignature(item);
+        if (seen.has(signature)) return;
+        seen.add(signature);
+        unique.push(item);
+      });
+
+      unique.sort(function (a, b) {
+        return compareHomeItems(a, b, now);
+      });
+
+      return unique.slice(0, HOME_LIMIT);
+    }
+
+    async function loadAnnouncements() {
+      try {
+        const response = await fetch(DATA_URL, { cache: "no-store" });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+
+        const payload = await response.json();
+        const items = pickHomeItems(payload.events);
+
+        if (!items.length) {
+          if (shell) shell.hidden = true;
+          return;
+        }
+
+        list.innerHTML = "";
+        items.forEach(function (item, index) {
+          list.appendChild(renderCard(item, index));
+        });
+        renderMarquee(items);
+
+        if (shell) shell.hidden = true;
+
+        if (window.BCScrollAnimations && typeof window.BCScrollAnimations.refresh === "function") {
+          window.BCScrollAnimations.refresh(section);
+        }
+      } catch (_error) {
+        if (shell) shell.hidden = true;
+      }
+    }
+
+    loadAnnouncements();
   }
 
   initHomeAnnouncements();

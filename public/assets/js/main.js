@@ -3,6 +3,8 @@
 
   const CONFIG = {
     teamMarqueeSpeedPxPerSec: 28, // скорость автопрокрутки карточек команды (px/sec)
+    partnerMarqueeSpeedPxPerSec: 24,
+    reducedMotionMarqueeFactor: 0.38,
     teamMarqueePauseOnHover: true,
     hideGoogleTranslateBanner: true
   };
@@ -17,6 +19,75 @@
   if (yearNode) {
     yearNode.textContent = String(new Date().getFullYear());
   }
+
+  function initMobileZoomLock() {
+    const ua = window.navigator.userAgent || "";
+    const isAppleTouchDevice =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+    const isSafari =
+      /Safari/i.test(ua) &&
+      !/CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser|DuckDuckGo/i.test(ua);
+
+    if (!isAppleTouchDevice || !isSafari) return;
+
+    const listenerOptions = { passive: false };
+    let lastTouchEndAt = 0;
+    let lastTouchX = 0;
+    let lastTouchY = 0;
+
+    function preventZoom(event) {
+      event.preventDefault();
+    }
+
+    document.addEventListener("gesturestart", preventZoom, listenerOptions);
+    document.addEventListener("gesturechange", preventZoom, listenerOptions);
+    document.addEventListener("gestureend", preventZoom, listenerOptions);
+
+    document.addEventListener(
+      "touchstart",
+      function (event) {
+        if (event.touches.length > 1) {
+          event.preventDefault();
+        }
+      },
+      listenerOptions
+    );
+
+    document.addEventListener(
+      "touchend",
+      function (event) {
+        if (event.touches.length !== 0 || event.changedTouches.length !== 1) return;
+
+        const touch = event.changedTouches[0];
+        const now = Date.now();
+        const delta = now - lastTouchEndAt;
+        const isRapidSecondTap = delta > 0 && delta < 350;
+        const isNearbyTap =
+          Math.abs(touch.clientX - lastTouchX) < 24 &&
+          Math.abs(touch.clientY - lastTouchY) < 24;
+
+        lastTouchEndAt = now;
+        lastTouchX = touch.clientX;
+        lastTouchY = touch.clientY;
+
+        if (!isRapidSecondTap || !isNearbyTap) return;
+
+        event.preventDefault();
+
+        const target = event.target.closest(
+          "a, button, summary, label, [role=\"button\"], [data-double-tap-click]"
+        );
+
+        if (target && typeof target.click === "function") {
+          target.click();
+        }
+      },
+      listenerOptions
+    );
+  }
+
+  initMobileZoomLock();
 
   function setActiveLinkByPath() {
     const currentFile = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
@@ -89,77 +160,180 @@
     });
   }
 
-  (function initTeamMarquee() {
-    const marquee = document.getElementById("team-marquee");
-    if (!marquee) return;
+  function initCarousel(root) {
+    if (!root || root.dataset.carouselReady === "true") return;
 
-    const prefersReducedMotion =
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const carouselId = String(root.dataset.carousel || "");
+    const isTeamHomeCarousel = carouselId === "team-home";
+    const viewport = root.querySelector("[data-carousel-viewport]");
+    const track = root.querySelector("[data-carousel-track]");
+    const prev = root.querySelector("[data-carousel-prev]");
+    const next = root.querySelector("[data-carousel-next]");
+    if (!viewport || !track) return;
+    let edgeTapTimestamps = [];
+    let teamEasterUnlocked = false;
 
-    // уберёте false, если понадобится фича с отключенным движением
-    if (prefersReducedMotion && false) return;
+    function getMaxScroll() {
+      return Math.max(0, viewport.scrollWidth - viewport.clientWidth - 2);
+    }
 
-    let isPaused = false;
-    let rafId = 0;
-    let lastTs = 0;
+    function isAtEnd() {
+      return viewport.scrollLeft >= getMaxScroll();
+    }
 
-    const speed = Math.max(0, Number(CONFIG.teamMarqueeSpeedPxPerSec) || 0);
-    const pxPerMs = speed / 1000;
+    function buildDeveloperCard() {
+      const card = document.createElement("article");
+      card.className = "team-card team-card--home team-card--developer-secret lift-on-hover";
+      card.setAttribute("data-easter-card", "developer");
+      card.style.setProperty("--team-accent", "#f5d36b");
+      card.style.setProperty("--team-accent-2", "#60a5fa");
+      card.style.setProperty("--team-accent-glow", "rgba(245, 211, 107, 0.24)");
 
-    function step(ts) {
-      if (!lastTs) lastTs = ts;
-      const dt = ts - lastTs;
-      lastTs = ts;
+      const head = document.createElement("div");
+      head.className = "team-card-head";
 
-      if (!isPaused && pxPerMs > 0) {
-        marquee.scrollLeft += dt * pxPerMs;
+      const avatar = document.createElement("div");
+      avatar.className = "team-avatar";
+      avatar.setAttribute("aria-hidden", "true");
 
-        const maxScroll = marquee.scrollWidth - marquee.clientWidth - 1;
-        if (maxScroll > 0 && marquee.scrollLeft >= maxScroll) {
-          marquee.scrollLeft = 0;
+      const initials = document.createElement("span");
+      initials.className = "team-avatar-initials";
+      initials.textContent = "DEV";
+      avatar.appendChild(initials);
+
+      const heading = document.createElement("div");
+      heading.className = "team-card-heading";
+
+      const name = document.createElement("h3");
+      name.className = "team-name";
+      name.textContent = "Разработчик сайта";
+
+      const role = document.createElement("p");
+      role.className = "team-role";
+      role.textContent = "Секретный участник";
+
+      heading.appendChild(name);
+      heading.appendChild(role);
+      head.appendChild(avatar);
+      head.appendChild(heading);
+
+      const excerpt = document.createElement("p");
+      excerpt.className = "team-excerpt";
+      excerpt.textContent = "Много часов интенсивной работы, бессонные ночи... Рад встречать здесь тех, кто нашёл мою пасхалку :)";
+
+      const meta = document.createElement("div");
+      meta.className = "team-meta-top";
+
+      const chipOne = document.createElement("span");
+      chipOne.className = "team-chip";
+      chipOne.textContent = "Факультет вычислительной математики и кибернетики";
+
+      const chipTwo = document.createElement("span");
+      chipTwo.className = "team-chip";
+      chipTwo.textContent = "1 курс";
+
+      meta.appendChild(chipOne);
+      meta.appendChild(chipTwo);
+
+      card.appendChild(head);
+      card.appendChild(excerpt);
+      card.appendChild(meta);
+      return card;
+    }
+
+    function unlockTeamEasterCard() {
+      if (!isTeamHomeCarousel || teamEasterUnlocked) return;
+      if (track.querySelector("[data-easter-card='developer']")) {
+        teamEasterUnlocked = true;
+        return;
+      }
+
+      teamEasterUnlocked = true;
+      track.appendChild(buildDeveloperCard());
+      root.dataset.easterUnlocked = "true";
+
+      requestAnimationFrame(function () {
+        updateState();
+        viewport.scrollTo({
+          left: viewport.scrollWidth,
+          behavior: "smooth"
+        });
+      });
+    }
+
+    function registerEdgeTap() {
+      if (!isTeamHomeCarousel || teamEasterUnlocked) return;
+
+      const now = Date.now();
+      edgeTapTimestamps = edgeTapTimestamps.filter(function (ts) {
+        return now - ts <= 5000;
+      });
+      edgeTapTimestamps.push(now);
+
+      if (edgeTapTimestamps.length >= 10) {
+        edgeTapTimestamps = [];
+        unlockTeamEasterCard();
+      }
+    }
+
+    function getStep() {
+      const firstCard = track.children[0];
+      if (!firstCard) return viewport.clientWidth * 0.85;
+      const styles = window.getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+      return firstCard.getBoundingClientRect().width + gap;
+    }
+
+    function updateState() {
+      const maxScroll = getMaxScroll();
+      const left = viewport.scrollLeft;
+      const atStart = left <= 4;
+      const atEnd = left >= maxScroll;
+
+      if (prev) prev.disabled = atStart;
+
+      if (next) {
+        if (isTeamHomeCarousel && !teamEasterUnlocked) {
+          next.disabled = false;
+          next.classList.toggle("is-inactive", atEnd);
+          next.setAttribute("aria-disabled", atEnd ? "true" : "false");
+        } else {
+          next.disabled = atEnd;
+          next.classList.remove("is-inactive");
+          next.removeAttribute("aria-disabled");
         }
       }
 
-      rafId = window.requestAnimationFrame(step);
-    }
-
-    function pause() {
-      isPaused = true;
-    }
-    function resume() {
-      isPaused = false;
-    }
-
-    if (CONFIG.teamMarqueePauseOnHover) {
-      marquee.addEventListener("mouseenter", pause);
-      marquee.addEventListener("mouseleave", resume);
-    }
-
-    marquee.addEventListener("focusin", pause);
-    marquee.addEventListener("focusout", resume);
-
-    marquee.addEventListener(
-      "pointerdown",
-      function () {
-        pause();
-        window.setTimeout(resume, 1200);
-      },
-      { passive: true }
-    );
-
-    rafId = window.requestAnimationFrame(step);
-
-    // если страница уходит в background, экономим ресурсы
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) {
-        window.cancelAnimationFrame(rafId);
-      } else {
-        lastTs = 0;
-        rafId = window.requestAnimationFrame(step);
+      if (!atEnd) {
+        edgeTapTimestamps = [];
       }
-    });
-  })();
+    }
+
+    function scrollByCard(direction) {
+      if (direction > 0 && isAtEnd()) {
+        registerEdgeTap();
+      }
+      viewport.scrollBy({ left: direction * getStep(), behavior: "smooth" });
+    }
+
+    if (prev) prev.addEventListener("click", function () { scrollByCard(-1); });
+    if (next) next.addEventListener("click", function () { scrollByCard(1); });
+    viewport.addEventListener("scroll", updateState, { passive: true });
+    window.addEventListener("resize", updateState);
+    root.dataset.carouselReady = "true";
+    updateState();
+  }
+
+  function initAllCarousels(scope) {
+    const host = scope && scope.querySelectorAll ? scope : document;
+    host.querySelectorAll("[data-carousel]").forEach(initCarousel);
+  }
+
+  window.BCCarousels = {
+    refresh: initAllCarousels
+  };
+
+  initAllCarousels(document);
 
   const sheet = document.getElementById("application-sheet");
   const sheetOverlay = document.getElementById("sheet-overlay");

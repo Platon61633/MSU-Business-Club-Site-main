@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import logging
+import mimetypes
 import os
 import random
 import re
@@ -25,11 +26,17 @@ try:
 except Exception:
     MOSCOW_TZ = timezone(timedelta(hours=3))
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+PUBLIC_DIR = os.path.join(PROJECT_ROOT, "public")
 DEFAULT_DB_PATH = os.path.join(SCRIPT_DIR, "tg_events.sqlite")
-DEFAULT_EXPORT_PATH = os.path.join(SCRIPT_DIR, "events.json")
+DEFAULT_EXPORT_PATH = os.path.join(PUBLIC_DIR, "assets", "data", "events.json")
+DEFAULT_HOME_EXPORT_PATH = os.path.join(PUBLIC_DIR, "assets", "data", "home-announcements.json")
 DEFAULT_CHECKPOINT_PATH = os.path.join(SCRIPT_DIR, "checkpoint.json")
+DEFAULT_MEDIA_CACHE_DIR = os.path.join(PUBLIC_DIR, "assets", "img", "parser")
+DEFAULT_MEDIA_URL_PREFIX = "assets/img/parser"
 ROLL_TO_NEXT_YEAR_THRESHOLD_DAYS = 180
 MAX_HOME_DELTA_DAYS = 120
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"}
 
 RU_MONTHS = {
     "января": 1,
@@ -211,6 +218,16 @@ def atomic_write_json(path: str, payload: dict) -> None:
     os.replace(tmp, path)
 
 
+def atomic_write_bytes(path: str, payload: bytes) -> None:
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    tmp = f"{path}.tmp"
+    with open(tmp, "wb") as handle:
+        handle.write(payload)
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(tmp, path)
+
+
 def parse_iso_datetime(value: Optional[str]) -> Optional[datetime]:
     if not value:
         return None
@@ -269,6 +286,132 @@ def canonical_url(url: Optional[str]) -> Optional[str]:
     path = parsed.path.rstrip("/") or "/"
     query = f"?{parsed.query}" if parsed.query else ""
     return f"{parsed.scheme.lower()}://{parsed.netloc.lower()}{path}{query}"
+
+
+def normalize_asset_path(value: str) -> str:
+    candidate = clean_text(value)
+    if candidate.startswith("/"):
+        candidate = candidate[1:]
+    return candidate
+
+
+def is_local_asset_path(value: Optional[str]) -> bool:
+    candidate = normalize_asset_path(value or "")
+    return candidate.startswith("assets/")
+
+
+def is_remote_http_url(value: Optional[str]) -> bool:
+    if not value:
+        return False
+    parsed = urlparse(clean_text(value))
+    return parsed.scheme.lower() in {"http", "https"} and bool(parsed.netloc)
+
+
+def guess_image_extension(source_url: str, content_type: str) -> str:
+    ext = os.path.splitext(urlparse(source_url).path)[1].lower()
+    if ext in IMAGE_EXTENSIONS:
+        return ext
+    guessed = mimetypes.guess_extension((content_type or "").split(";", 1)[0].strip().lower() or "")
+    if guessed in IMAGE_EXTENSIONS:
+        return guessed
+    if guessed == ".jpe":
+        return ".jpg"
+    return ".jpg"
+
+
+def media_cache_basename(channel: str, source_post_id: int, ordinal: int) -> str:
+    safe_channel = re.sub(r"[^a-zA-Z0-9_-]+", "-", clean_text(channel) or "channel").strip("-") or "channel"
+    return f"{safe_channel}-{source_post_id}-{ordinal:02d}"
+
+
+def find_cached_media_relative_path(
+    channel: str,
+    source_post_id: int,
+    ordinal: int,
+    media_cache_dir: str,
+    media_url_prefix: str,
+) -> Optional[str]:
+    basename = media_cache_basename(channel, source_post_id, ordinal)
+    if not os.path.isdir(media_cache_dir):
+        return None
+    for entry in os.scandir(media_cache_dir):
+        if not entry.is_file():
+            continue
+        filename = entry.name
+        if not filename.startswith(f"{basename}."):
+            continue
+        ext = os.path.splitext(filename)[1].lower()
+        if ext in IMAGE_EXTENSIONS:
+            return f"{media_url_prefix.rstrip('/')}/{filename}"
+    return None
+
+
+def cache_remote_image(
+    session: Any,
+    source_url: str,
+    channel: str,
+    source_post_id: int,
+    ordinal: int,
+    media_cache_dir: str,
+    media_url_prefix: str,
+) -> Optional[str]:
+    cached_path = find_cached_media_relative_path(channel, source_post_id, ordinal, media_cache_dir, media_url_prefix)
+    if cached_path:
+        return cached_path
+
+    response = get_with_retries(session, url=source_url, timeout=45)
+    payload = response.content
+    if not payload:
+        return None
+
+    content_type = response.headers.get("Content-Type", "")
+    if content_type and not content_type.lower().startswith("image/"):
+        logging.warning("Skip non-image media for post %s/%s: %s (%s)", channel, source_post_id, source_url, content_type)
+        return None
+
+    ext = guess_image_extension(source_url, content_type)
+    filename = f"{media_cache_basename(channel, source_post_id, ordinal)}{ext}"
+    abs_path = os.path.join(media_cache_dir, filename)
+    atomic_write_bytes(abs_path, payload)
+    return f"{media_url_prefix.rstrip('/')}/{filename}"
+
+
+def localize_media_url(
+    session: Optional[Any],
+    media_url: Optional[str],
+    channel: str,
+    source_post_id: int,
+    ordinal: int,
+    media_cache_dir: str,
+    media_url_prefix: str,
+) -> Optional[str]:
+    candidate = clean_text(media_url or "")
+    if not candidate:
+        return None
+    if is_local_asset_path(candidate):
+        return normalize_asset_path(candidate)
+    if not is_remote_http_url(candidate):
+        return candidate
+
+    cached_path = find_cached_media_relative_path(channel, source_post_id, ordinal, media_cache_dir, media_url_prefix)
+    if cached_path:
+        return cached_path
+    if session is None:
+        return None
+
+    try:
+        return cache_remote_image(
+            session=session,
+            source_url=candidate,
+            channel=channel,
+            source_post_id=source_post_id,
+            ordinal=ordinal,
+            media_cache_dir=media_cache_dir,
+            media_url_prefix=media_url_prefix,
+        )
+    except Exception as exc:
+        logging.warning("Failed to cache media for post %s/%s: %s", channel, source_post_id, exc)
+        return None
 
 
 def is_telegram_internal_url(url: Optional[str]) -> bool:
@@ -650,6 +793,68 @@ def make_event(
         cover_image=cover_image,
         gallery=gallery,
     )
+
+
+def localize_event_media(
+    event: Event,
+    session: Optional[Any],
+    media_cache_dir: str,
+    media_url_prefix: str,
+) -> bool:
+    source_gallery = event.gallery or ([event.cover_image] if event.cover_image else [])
+    localized_gallery: List[str] = []
+
+    for ordinal, media_url in enumerate(source_gallery, start=1):
+        localized = localize_media_url(
+            session=session,
+            media_url=media_url,
+            channel=event.channel,
+            source_post_id=event.source_post_id,
+            ordinal=ordinal,
+            media_cache_dir=media_cache_dir,
+            media_url_prefix=media_url_prefix,
+        )
+        if localized:
+            localized_gallery.append(localized)
+
+    fallback = pick_fallback_cover_image(event.title, event.content_kind)
+    next_gallery = localized_gallery or [normalize_asset_path(fallback)]
+    next_cover = next_gallery[0]
+    changed = event.cover_image != next_cover or event.gallery != next_gallery
+    event.cover_image = next_cover
+    event.gallery = next_gallery
+    return changed
+
+
+def localize_event_dict_media(
+    event: dict,
+    session: Optional[Any],
+    media_cache_dir: str,
+    media_url_prefix: str,
+) -> bool:
+    source_gallery = event.get("gallery") or ([event.get("cover_image")] if event.get("cover_image") else [])
+    localized_gallery: List[str] = []
+
+    for ordinal, media_url in enumerate(source_gallery, start=1):
+        localized = localize_media_url(
+            session=session,
+            media_url=media_url,
+            channel=event.get("channel") or "channel",
+            source_post_id=int(event.get("source_post_id") or 0),
+            ordinal=ordinal,
+            media_cache_dir=media_cache_dir,
+            media_url_prefix=media_url_prefix,
+        )
+        if localized:
+            localized_gallery.append(localized)
+
+    fallback = pick_fallback_cover_image(event.get("title") or "", event.get("content_kind") or "other")
+    next_gallery = localized_gallery or [normalize_asset_path(fallback)]
+    next_cover = next_gallery[0]
+    changed = event.get("cover_image") != next_cover or event.get("gallery") != next_gallery
+    event["cover_image"] = next_cover
+    event["gallery"] = next_gallery
+    return changed
 
 
 def extract_digest_events(post: TelegramPost) -> List[Event]:
@@ -1048,6 +1253,67 @@ def load_export_events(conn: sqlite3.Connection, channel: str) -> List[dict]:
     return events
 
 
+def backfill_event_media_cache(
+    conn: sqlite3.Connection,
+    channel: str,
+    session: Optional[Any],
+    media_cache_dir: str,
+    media_url_prefix: str,
+) -> int:
+    rows = conn.execute(
+        """
+        SELECT
+            event_key,
+            channel,
+            source_post_id,
+            title,
+            COALESCE(content_kind, 'other'),
+            cover_image,
+            gallery_json
+        FROM events
+        WHERE channel=?
+        ORDER BY source_post_id DESC, event_key
+        """,
+        (channel,),
+    ).fetchall()
+
+    updated = 0
+    with conn:
+        for row in rows:
+            gallery_raw = row[6]
+            try:
+                gallery = json.loads(gallery_raw) if gallery_raw else []
+            except json.JSONDecodeError:
+                gallery = []
+
+            event = {
+                "channel": row[1],
+                "source_post_id": row[2],
+                "title": row[3],
+                "content_kind": row[4] or "other",
+                "cover_image": row[5],
+                "gallery": gallery,
+            }
+            if not localize_event_dict_media(event, session, media_cache_dir, media_url_prefix):
+                continue
+
+            conn.execute(
+                """
+                UPDATE events
+                SET cover_image=?, gallery_json=?, updated_at=?
+                WHERE event_key=?
+                """,
+                (
+                    event["cover_image"],
+                    json.dumps(event["gallery"], ensure_ascii=False),
+                    now_iso(),
+                    row[0],
+                ),
+            )
+            updated += 1
+    return updated
+
+
 def is_home_candidate(event: dict, now_dt: datetime) -> bool:
     if event.get("content_kind") != "announcement":
         return False
@@ -1133,7 +1399,19 @@ def export_outputs(
     export_path: Optional[str],
     home_export_path: Optional[str],
     home_limit: int,
+    session: Optional[Any] = None,
+    media_cache_dir: str = DEFAULT_MEDIA_CACHE_DIR,
+    media_url_prefix: str = DEFAULT_MEDIA_URL_PREFIX,
 ) -> None:
+    updated_media = backfill_event_media_cache(
+        conn=conn,
+        channel=channel,
+        session=session,
+        media_cache_dir=media_cache_dir,
+        media_url_prefix=media_url_prefix,
+    )
+    if updated_media:
+        logging.info("Localized media for %d event records", updated_media)
     if export_path:
         logging.info("Exported %d archive items -> %s", export_events_json(conn, channel, export_path), export_path)
     if home_export_path:
@@ -1205,7 +1483,7 @@ def fetch_feed_page(session: Any, channel: str, before: Optional[int]) -> str:
 
 
 def fetch_single_post(session: Any, channel: str, post_id: int) -> str:
-    return get_with_retries(session, url=f"https://t.me/{channel}/{post_id}").text
+    return get_with_retries(session, url=f"https://t.me/s/{channel}/{post_id}").text
 
 
 def append_jsonl(path: str, obj: dict) -> None:
@@ -1216,9 +1494,23 @@ def append_jsonl(path: str, obj: dict) -> None:
         os.fsync(handle.fileno())
 
 
-def process_post(conn: sqlite3.Connection, post: TelegramPost, events_jsonl: Optional[str]) -> Tuple[bool, int]:
+def process_post(
+    conn: sqlite3.Connection,
+    post: TelegramPost,
+    events_jsonl: Optional[str],
+    session: Optional[Any],
+    media_cache_dir: str,
+    media_url_prefix: str,
+) -> Tuple[bool, int]:
     changed = db_upsert_post(conn, post)
     events = extract_events_from_post(post) if is_eventish_post(post.text) else []
+    for event in events:
+        localize_event_media(
+            event=event,
+            session=session,
+            media_cache_dir=media_cache_dir,
+            media_url_prefix=media_url_prefix,
+        )
     event_count = db_replace_events_for_post(conn, post, events)
 
     if events_jsonl:
@@ -1257,6 +1549,8 @@ def run_update_mode(
     home_limit: int,
     checkpoint_path: Optional[str],
     events_jsonl: Optional[str],
+    media_cache_dir: str,
+    media_url_prefix: str,
 ) -> None:
     session = make_session()
     before = None
@@ -1266,36 +1560,73 @@ def run_update_mode(
     upserted_events = 0
     known_streak = 0
 
-    def do_checkpoint() -> None:
-        if checkpoint_path:
-            atomic_write_json(
-                checkpoint_path,
-                {
-                    "channel": channel,
-                    "mode": "update",
-                    "before": before,
-                    "pages": pages,
-                    "processed_posts": processed_posts,
-                    "upserted_posts": upserted_posts,
-                    "upserted_events": upserted_events,
-                    "known_streak": known_streak,
-                    "updated_at": now_iso(),
-                },
-            )
-        export_outputs(conn, channel, export_path, home_export_path, home_limit)
+    def write_checkpoint(status: str = "ok", **extra: Any) -> None:
+        if not checkpoint_path:
+            return
+
+        payload = {
+            "channel": channel,
+            "mode": "update",
+            "status": status,
+            "before": before,
+            "pages": pages,
+            "processed_posts": processed_posts,
+            "upserted_posts": upserted_posts,
+            "upserted_events": upserted_events,
+            "known_streak": known_streak,
+            "updated_at": now_iso(),
+        }
+        payload.update(extra)
+        atomic_write_json(checkpoint_path, payload)
+
+    def do_checkpoint(export: bool = True, status: str = "ok", **extra: Any) -> None:
+        write_checkpoint(status=status, **extra)
+        if not export:
+            return
+        export_outputs(
+            conn,
+            channel,
+            export_path,
+            home_export_path,
+            home_limit,
+            session=session,
+            media_cache_dir=media_cache_dir,
+            media_url_prefix=media_url_prefix,
+        )
 
     while pages < max_pages and processed_posts < max_posts:
         try:
             html = fetch_feed_page(session, channel, before=before)
         except Exception as exc:
             logging.exception("Failed to fetch feed page (before=%s): %s", before, exc)
-            do_checkpoint()
+            if pages == 0 and processed_posts == 0:
+                logging.error("Update aborted before the first page was processed. Keeping previous exports unchanged.")
+                do_checkpoint(
+                    export=False,
+                    status="error",
+                    reason="fetch_failed_before_first_page",
+                    error=str(exc)[:300],
+                )
+            else:
+                do_checkpoint(
+                    status="partial",
+                    reason="fetch_failed_after_partial_update",
+                    error=str(exc)[:300],
+                )
             return
 
         posts = parse_posts_from_html(html, channel)
         if not posts:
-            logging.info("No posts found on page, stopping.")
-            do_checkpoint()
+            if before is None and pages == 0 and processed_posts == 0:
+                logging.error("No posts were parsed from the first feed page. Keeping previous exports unchanged.")
+                do_checkpoint(
+                    export=False,
+                    status="error",
+                    reason="no_posts_on_first_page",
+                )
+            else:
+                logging.info("No posts found on page, stopping.")
+                do_checkpoint()
             return
 
         pages += 1
@@ -1309,7 +1640,14 @@ def run_update_mode(
             known_streak = known_streak + 1 if post.post_id in existing else 0
 
             try:
-                changed, event_count = process_post(conn, post, events_jsonl)
+                changed, event_count = process_post(
+                    conn,
+                    post,
+                    events_jsonl,
+                    session=session,
+                    media_cache_dir=media_cache_dir,
+                    media_url_prefix=media_url_prefix,
+                )
                 if changed:
                     upserted_posts += 1
                 upserted_events += event_count
@@ -1344,6 +1682,8 @@ def run_fetch_ids_mode(
     home_export_path: Optional[str],
     home_limit: int,
     events_jsonl: Optional[str],
+    media_cache_dir: str,
+    media_url_prefix: str,
 ) -> None:
     requests = require_requests()
     session = make_session()
@@ -1358,7 +1698,14 @@ def run_fetch_ids_mode(
                 logging.warning("post_id=%d not parsed (maybe deleted)", post_id)
                 continue
 
-            process_post(conn, post, events_jsonl)
+            process_post(
+                conn,
+                post,
+                events_jsonl,
+                session=session,
+                media_cache_dir=media_cache_dir,
+                media_url_prefix=media_url_prefix,
+            )
             logging.info("[%d/%d] OK post_id=%d", index, len(ids), post_id)
         except requests.HTTPError as exc:
             status_code = getattr(exc.response, "status_code", None)
@@ -1375,7 +1722,16 @@ def run_fetch_ids_mode(
 
         time.sleep(sleep_sec)
 
-    export_outputs(conn, channel, export_path, home_export_path, home_limit)
+    export_outputs(
+        conn,
+        channel,
+        export_path,
+        home_export_path,
+        home_limit,
+        session=session,
+        media_cache_dir=media_cache_dir,
+        media_url_prefix=media_url_prefix,
+    )
 
 
 def run_repair_missing_mode(
@@ -1387,6 +1743,8 @@ def run_repair_missing_mode(
     home_export_path: Optional[str],
     home_limit: int,
     events_jsonl: Optional[str],
+    media_cache_dir: str,
+    media_url_prefix: str,
 ) -> None:
     min_post_id, max_post_id = db_min_max_post_id(conn, channel)
     if min_post_id is None or max_post_id is None:
@@ -1408,6 +1766,8 @@ def run_repair_missing_mode(
         home_export_path=home_export_path,
         home_limit=home_limit,
         events_jsonl=events_jsonl,
+        media_cache_dir=media_cache_dir,
+        media_url_prefix=media_url_prefix,
     )
 
 
@@ -1440,11 +1800,13 @@ def main() -> None:
     parser.add_argument("--max-posts", type=int, default=250, help="лимит постов за запуск")
     parser.add_argument("--stop-after-known", type=int, default=25, help="остановиться после N известных постов подряд")
     parser.add_argument("--export", default=DEFAULT_EXPORT_PATH, help="куда экспортировать архивный JSON")
-    parser.add_argument("--home-export", default=None, help="куда экспортировать JSON для главной")
+    parser.add_argument("--home-export", default=DEFAULT_HOME_EXPORT_PATH, help="куда экспортировать JSON для главной")
     parser.add_argument("--home-limit", type=int, default=4, help="сколько автокарточек делать для главной")
     parser.add_argument("--checkpoint-file", default=DEFAULT_CHECKPOINT_PATH, help="файл прогресса")
     parser.add_argument("--checkpoint-every", type=int, default=40, help="чекпоинт каждые N обработанных постов")
     parser.add_argument("--events-jsonl", default=None, help="если задано, писать события построчно в JSONL")
+    parser.add_argument("--media-cache-dir", default=DEFAULT_MEDIA_CACHE_DIR, help="куда складывать локальные копии картинок")
+    parser.add_argument("--media-url-prefix", default=DEFAULT_MEDIA_URL_PREFIX, help="какой web-путь писать в JSON для скачанных картинок")
     parser.add_argument("--fetch-ids", default=None, help="скачать только эти id: 123,124,130")
     parser.add_argument("--repair-missing", action="store_true", help="добрать пропущенные id")
     parser.add_argument("--repair-limit", type=int, default=120, help="сколько id максимум добирать за запуск")
@@ -1462,7 +1824,15 @@ def main() -> None:
 
     try:
         if args.export_only:
-            export_outputs(conn, args.channel, args.export, args.home_export, args.home_limit)
+            export_outputs(
+                conn,
+                args.channel,
+                args.export,
+                args.home_export,
+                args.home_limit,
+                media_cache_dir=args.media_cache_dir,
+                media_url_prefix=args.media_url_prefix,
+            )
             return
 
         if args.fetch_ids:
@@ -1475,6 +1845,8 @@ def main() -> None:
                 home_export_path=args.home_export,
                 home_limit=args.home_limit,
                 events_jsonl=args.events_jsonl,
+                media_cache_dir=args.media_cache_dir,
+                media_url_prefix=args.media_url_prefix,
             )
             return
 
@@ -1488,6 +1860,8 @@ def main() -> None:
                 home_export_path=args.home_export,
                 home_limit=args.home_limit,
                 events_jsonl=args.events_jsonl,
+                media_cache_dir=args.media_cache_dir,
+                media_url_prefix=args.media_url_prefix,
             )
             return
 
@@ -1504,19 +1878,37 @@ def main() -> None:
             home_limit=args.home_limit,
             checkpoint_path=args.checkpoint_file,
             events_jsonl=args.events_jsonl,
+            media_cache_dir=args.media_cache_dir,
+            media_url_prefix=args.media_url_prefix,
         )
     except MissingDependencyError as exc:
         logging.error("%s", exc)
         sys.exit(2)
     except KeyboardInterrupt:
         logging.warning("Interrupted by user. Exporting current state...")
-        export_outputs(conn, args.channel, args.export, args.home_export, args.home_limit)
+        export_outputs(
+            conn,
+            args.channel,
+            args.export,
+            args.home_export,
+            args.home_limit,
+            media_cache_dir=args.media_cache_dir,
+            media_url_prefix=args.media_url_prefix,
+        )
         if args.checkpoint_file:
             atomic_write_json(args.checkpoint_file, {"channel": args.channel, "interrupted_at": now_iso()})
         sys.exit(0)
     except Exception as exc:
         logging.exception("Fatal error: %s", exc)
-        export_outputs(conn, args.channel, args.export, args.home_export, args.home_limit)
+        export_outputs(
+            conn,
+            args.channel,
+            args.export,
+            args.home_export,
+            args.home_limit,
+            media_cache_dir=args.media_cache_dir,
+            media_url_prefix=args.media_url_prefix,
+        )
         if args.checkpoint_file:
             atomic_write_json(args.checkpoint_file, {"channel": args.channel, "fatal_at": now_iso(), "error": str(exc)})
         sys.exit(1)

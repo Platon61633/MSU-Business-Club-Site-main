@@ -6,12 +6,11 @@
 
   const tabs = Array.from(document.querySelectorAll(".format-tab[data-format]"));
   const stage = document.getElementById("format-stage");
-  const img = document.getElementById("format-image");
   const title = document.getElementById("format-title");
   const text = document.getElementById("format-text");
   const tags = document.getElementById("format-tags");
 
-  if (!tabs.length || !stage || !img || !title || !text || !tags) return;
+  if (!tabs.length || !stage || !title || !text || !tags) return;
 
   const prefersReducedMotion =
     window.matchMedia &&
@@ -22,41 +21,25 @@
       title: "Мастермайнд",
       text:
         "6–10 резидентов, модератор и 2–3 запроса на встречу. Разбираем ситуацию, предлагаем гипотезы и фиксируем конкретные действия до следующей встречи.",
-      tags: ["Разбор", "Гипотезы", "Action plan"],
-      img: {
-        src: "assets/img/event-01-tsypkin.jpg",
-        alt: "Мастермайнд резидентов"
-      }
+      tags: ["Разбор", "Гипотезы", "Action plan"]
     },
     fireside: {
       title: "Fireside chat",
       text:
         "Закрытая беседа с предпринимателем без публичности и лишнего шума. Формат — вопросы по делу, честные детали и «как было на самом деле».",
-      tags: ["Опыт", "Вопросы", "Без записи"],
-      img: {
-        src: "assets/img/event-04-ryasova.jpg",
-        alt: "Закрытая беседа с гостем"
-      }
+      tags: ["Опыт", "Вопросы", "Без записи"]
     },
     workshop: {
       title: "Work session",
       text:
         "Практическая сессия: рынок, продажи, стратегия, позиционирование. Уходим не с идеями, а с конкретным набором решений и задач.",
-      tags: ["Практика", "Метрики", "Фреймворки"],
-      img: {
-        src: "assets/img/event-02-pitch.jpg",
-        alt: "Практическая сессия"
-      }
+      tags: ["Практика", "Метрики", "Фреймворки"]
     },
     one2one: {
       title: "1:1",
       text:
         "Точечные интро и консультации: когда нужен один сильный контакт, один совет или один быстрый созвон, чтобы сдвинуться с места.",
-      tags: ["Интро", "Консультации", "Скорость"],
-      img: {
-        src: "assets/img/event-03-alyasov.jpg",
-        alt: "Личное общение"
-      }
+      tags: ["Интро", "Консультации", "Скорость"]
     }
   };
 
@@ -76,10 +59,6 @@
 
     title.textContent = row.title;
     text.textContent = row.text;
-
-    // swap image
-    img.src = row.img.src;
-    img.alt = row.img.alt;
 
     tags.innerHTML = "";
     row.tags.forEach((t) => {
